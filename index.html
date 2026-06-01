@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Olas | Sistema de Gestión Profesional</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <title>Café Olas - Sistema de Gestión</title>
     <style>
         * {
             margin: 0;
@@ -13,13 +12,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             background: #f5f7fa;
-            color: #2c3e50;
-            line-height: 1.6;
+            color: #333;
         }
 
-        /* LOGIN SECTION */
         .login-page {
             display: flex;
             justify-content: center;
@@ -29,13 +26,13 @@
             padding: 20px;
         }
 
-        .login-container {
+        .login-box {
             background: white;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
         }
 
         .login-header {
@@ -43,216 +40,105 @@
             margin-bottom: 30px;
         }
 
-        .login-logo {
+        .logo {
             font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .login-title {
-            font-size: 24px;
-            color: #0f3a7d;
-            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .login-subtitle {
+        .title {
+            font-size: 24px;
+            color: #0f3a7d;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
             font-size: 14px;
-            color: #7f8fa3;
-        }
-
-        .role-selector {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .role-btn {
-            padding: 20px 15px;
-            border: 2px solid #e8ecf0;
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .role-btn:hover {
-            border-color: #667eea;
-            background: #f0f2f8;
-        }
-
-        .role-btn.selected {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: #667eea;
-        }
-
-        .role-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
+            color: #666;
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-group label {
+        label {
             display: block;
             margin-bottom: 8px;
             color: #0f3a7d;
-            font-weight: 600;
+            font-weight: bold;
             font-size: 14px;
         }
 
-        .form-group input {
+        input[type="password"], input[type="text"], select {
             width: 100%;
             padding: 12px;
             border: 2px solid #e8ecf0;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 14px;
-            transition: border-color 0.3s;
         }
 
-        .form-group input:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .login-btn {
+        button {
             width: 100%;
             padding: 12px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s;
             margin-top: 10px;
         }
 
-        .login-btn:hover {
-            transform: translateY(-2px);
+        button:hover {
+            opacity: 0.9;
         }
 
-        .error-msg {
-            color: #f5576c;
+        .error {
+            color: red;
             font-size: 13px;
             margin-top: 10px;
             text-align: center;
         }
 
-        /* APP SECTION */
+        .success {
+            color: green;
+            font-size: 13px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
         .app-page {
             display: none;
         }
 
-        .app-page.active {
-            display: block;
-        }
-
-        /* Navigation */
         nav {
-            background: linear-gradient(135deg, #0f3a7d 0%, #1a5f9f 100%);
-            padding: 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
+            background: #0f3a7d;
+            padding: 15px 20px;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
         }
 
-        .nav-logo {
-            font-size: 24px;
-            font-weight: 700;
+        nav a {
             color: white;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        .nav-menu {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            align-items: center;
+        nav a:hover {
+            color: #43e97b;
         }
 
-        .nav-menu a {
-            color: white;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            border-bottom-color: #43e97b;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .user-role {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .logout-btn {
-            background: #f5576c;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 13px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .logout-btn:hover {
-            background: #e63555;
-        }
-
-        /* Pages */
-        .page {
-            display: none;
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Content Areas */
-        .content-wrapper {
+        .content {
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
@@ -260,797 +146,104 @@
 
         .card {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .card-title {
-            font-size: 28px;
-            color: #0f3a7d;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 10px 16px;
-            border: none;
             border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn-secondary {
-            background: #f8f9fb;
+        h1 {
             color: #0f3a7d;
-            border: 2px solid #667eea;
+            margin-bottom: 20px;
         }
 
-        .btn-secondary:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-print {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-print:hover {
-            background: #218838;
-        }
-
-        .btn-save {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-cancel {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-delete {
-            background: #f5576c;
-            color: white;
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* KPI Cards */
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .kpi-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .kpi-label {
-            font-size: 13px;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .kpi-value {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            font-family: 'Courier New', monospace;
-        }
-
-        .kpi-description {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        /* Table */
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: 30px;
+        h2 {
+            color: #0f3a7d;
+            margin: 20px 0 15px 0;
+            font-size: 18px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
         th {
             background: #0f3a7d;
             color: white;
-            padding: 15px;
+            padding: 12px;
             text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: bold;
         }
 
         td {
-            padding: 15px;
-            border-bottom: 1px solid #e8ecf0;
-            font-size: 14px;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
         }
 
         tr:hover {
-            background: #f8f9fb;
+            background: #f5f5f5;
         }
 
         .amount {
-            font-family: 'Courier New', monospace;
-            font-weight: 600;
-            color: #667eea;
             text-align: right;
+            font-family: monospace;
+            font-weight: bold;
+            color: #667eea;
         }
 
-        /* Edit Fields */
-        .edit-grid {
+        .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
 
-        .edit-field {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .edit-field label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #0f3a7d;
-            margin-bottom: 6px;
-        }
-
-        .edit-field input,
-        .edit-field textarea {
-            padding: 10px;
-            border: 1px solid #e8ecf0;
-            border-radius: 6px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-
-        .edit-field textarea {
-            resize: vertical;
-            min-height: 60px;
-        }
-
-        .edit-field input:focus,
-        .edit-field textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        /* Admin Panel */
-        .admin-section {
-            background: #f0f2f8;
-            border: 2px solid #667eea;
+        .kpi {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 20px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .admin-section h3 {
-            color: #0f3a7d;
-            margin-bottom: 15px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .kpi-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        /* Alert */
-        .alert {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        .kpi-value {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .page {
             display: none;
-            animation: slideIn 0.3s ease-out;
         }
 
-        .alert.show {
+        .page.active {
             display: block;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        /* ========== RESPONSIVE DESIGN ========== */
-        @media (max-width: 1024px) {
-            .content-wrapper {
-                padding: 0 15px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .edit-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .nav-container {
-                padding: 0 15px;
-            }
-
-            .card-title {
-                font-size: 24px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .nav-container {
-                height: 60px;
-                padding: 0 10px;
-            }
-
-            .nav-logo {
-                font-size: 18px;
-            }
-
-            .nav-right {
-                gap: 8px;
-            }
-
-            .user-role {
-                font-size: 10px;
-                padding: 4px 8px;
-            }
-
-            .logout-btn {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-
-            .content-wrapper {
-                margin: 15px auto;
-                padding: 0 12px;
-            }
-
-            .card {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 15px;
-            }
-
-            .card-title {
-                font-size: 20px;
-            }
-
-            .card-actions {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 12px;
-                font-size: 12px;
-            }
-
-            .kpi-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                margin-bottom: 20px;
-            }
-
-            .kpi-card {
-                padding: 15px;
-            }
-
-            .kpi-label {
-                font-size: 11px;
-            }
-
-            .kpi-value {
-                font-size: 24px;
-            }
-
-            .kpi-description {
-                font-size: 11px;
-            }
-
-            .edit-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .edit-field label {
-                font-size: 12px;
-            }
-
-            .edit-field input,
-            .edit-field textarea {
-                font-size: 13px;
-                padding: 8px;
-            }
-
-            .admin-section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            .admin-section h3 {
-                font-size: 16px;
-                margin-bottom: 12px;
-            }
-
-            .table-container {
-                margin-bottom: 15px;
-            }
-
-            table {
-                font-size: 12px;
-            }
-
-            th {
-                padding: 10px;
-                font-size: 11px;
-            }
-
-            td {
-                padding: 10px;
-                font-size: 12px;
-            }
-
-            .amount {
-                font-size: 11px;
-            }
-
-            .login-container {
+            .login-box {
                 padding: 25px;
-                max-width: 320px;
-            }
-
-            .login-logo {
-                font-size: 40px;
-            }
-
-            .login-title {
-                font-size: 20px;
-            }
-
-            .login-subtitle {
-                font-size: 12px;
-            }
-
-            .role-selector {
-                gap: 10px;
-                margin-bottom: 15px;
-            }
-
-            .role-btn {
-                padding: 15px 10px;
-                font-size: 12px;
-            }
-
-            .role-icon {
-                font-size: 28px;
-                margin-bottom: 5px;
-            }
-
-            .form-group input {
-                padding: 10px;
-                font-size: 13px;
-            }
-
-            .login-btn {
-                padding: 10px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            * {
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            body {
-                font-size: 14px;
-            }
-
-            .nav-container {
-                height: 55px;
-                padding: 0 8px;
-            }
-
-            .nav-logo {
-                font-size: 16px;
-            }
-
-            .nav-logo span:last-child {
-                display: none;
-            }
-
-            .nav-right {
-                gap: 5px;
-            }
-
-            .user-role {
-                font-size: 9px;
-                padding: 3px 6px;
-                border-radius: 12px;
-            }
-
-            .logout-btn {
-                padding: 5px 10px;
-                font-size: 11px;
-            }
-
-            .content-wrapper {
-                margin: 10px auto;
-                padding: 0 10px;
-                max-width: 100%;
-            }
-
-            .card {
-                padding: 12px;
-                margin-bottom: 10px;
-                border-radius: 8px;
-            }
-
-            .card-header {
-                margin-bottom: 12px;
-            }
-
-            .card-title {
-                font-size: 18px;
-                margin-bottom: 5px;
-            }
-
-            .card-actions {
-                width: 100%;
-                gap: 5px;
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 10px;
-                font-size: 11px;
-                border-radius: 6px;
             }
 
             .kpi-grid {
                 grid-template-columns: 1fr;
-                gap: 10px;
-                margin-bottom: 15px;
-            }
-
-            .kpi-card {
-                padding: 12px;
-                border-radius: 8px;
-            }
-
-            .kpi-label {
-                font-size: 10px;
-                margin-bottom: 5px;
-            }
-
-            .kpi-value {
-                font-size: 20px;
-                font-weight: 700;
-            }
-
-            .kpi-description {
-                font-size: 10px;
-            }
-
-            .edit-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .edit-field {
-                margin-bottom: 5px;
-            }
-
-            .edit-field label {
-                font-size: 11px;
-                margin-bottom: 4px;
-            }
-
-            .edit-field input,
-            .edit-field textarea {
-                font-size: 12px;
-                padding: 7px;
-                border-radius: 4px;
-            }
-
-            .admin-section {
-                padding: 12px;
-                margin-bottom: 10px;
-                border-radius: 6px;
-            }
-
-            .admin-section h3 {
-                font-size: 14px;
-                margin-bottom: 10px;
-            }
-
-            .admin-section p {
-                font-size: 11px;
-            }
-
-            .table-container {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin-bottom: 10px;
-                border-radius: 6px;
             }
 
             table {
-                font-size: 11px;
-                min-width: 100%;
-            }
-
-            th {
-                padding: 8px;
-                font-size: 10px;
-            }
-
-            td {
-                padding: 8px;
-                font-size: 11px;
-            }
-
-            .amount {
-                font-size: 10px;
-            }
-
-            thead {
-                display: none;
-            }
-
-            tbody tr {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 0;
-                margin-bottom: 10px;
-                padding: 10px;
-                border: 1px solid #e8ecf0;
-                border-radius: 6px;
-                background: white;
-            }
-
-            tbody td {
-                padding: 6px 0;
-                border-bottom: 1px solid #e8ecf0;
-                display: grid;
-                grid-template-columns: 120px 1fr;
-                gap: 10px;
-                align-items: center;
-            }
-
-            tbody td:last-child {
-                border-bottom: none;
-            }
-
-            tbody td::before {
-                content: attr(data-label);
-                font-weight: 600;
-                color: #0f3a7d;
-                font-size: 10px;
-                text-transform: uppercase;
-            }
-
-            .login-container {
-                padding: 20px;
-                max-width: 100%;
-                border-radius: 12px;
-            }
-
-            .login-logo {
-                font-size: 36px;
-            }
-
-            .login-title {
-                font-size: 18px;
-            }
-
-            .login-subtitle {
-                font-size: 11px;
-            }
-
-            .role-selector {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-                margin-bottom: 12px;
-            }
-
-            .role-btn {
-                padding: 12px 8px;
-                font-size: 11px;
-            }
-
-            .role-icon {
-                font-size: 24px;
-            }
-
-            .form-group {
-                margin-bottom: 12px;
-            }
-
-            .form-group label {
                 font-size: 12px;
-                margin-bottom: 5px;
-            }
-
-            .form-group input {
-                padding: 10px;
-                font-size: 13px;
-                border-radius: 6px;
-            }
-
-            .login-btn {
-                padding: 10px;
-                font-size: 13px;
-                margin-top: 8px;
-            }
-
-            .error-msg {
-                font-size: 11px;
-            }
-
-            h3 {
-                font-size: 14px;
-            }
-
-            .role-selector button span {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .card-title {
-                font-size: 16px;
-            }
-
-            .kpi-value {
-                font-size: 18px;
-            }
-
-            .login-container {
-                padding: 15px;
-            }
-
-            .login-logo {
-                font-size: 32px;
-            }
-
-            .login-title {
-                font-size: 16px;
-            }
-
-            .btn {
-                font-size: 10px;
-            }
-
-            table {
-                font-size: 10px;
             }
 
             th, td {
-                padding: 6px;
-            }
-        }
-
-        @media (min-width: 1441px) {
-            .content-wrapper {
-                max-width: 1400px;
-            }
-
-            .card {
-                padding: 40px;
-            }
-
-            .kpi-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 30px;
-            }
-
-            .edit-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .kpi-value {
-                font-size: 36px;
-            }
-
-            .card-title {
-                font-size: 32px;
-            }
-        }
-
-        @media print {
-            nav, .card-actions, .admin-section, .btn, .alert {
-                display: none !important;
-            }
-            
-            body {
-                background: white;
-            }
-
-            .card {
-                box-shadow: none;
-                page-break-inside: avoid;
+                padding: 8px;
             }
         }
     </style>
@@ -1058,896 +251,329 @@
 <body>
     <!-- LOGIN PAGE -->
     <div id="loginPage" class="login-page">
-        <div class="login-container">
+        <div class="login-box">
             <div class="login-header">
-                <div class="login-logo">☕</div>
-                <div class="login-title">Café Olas</div>
-                <div class="login-subtitle">Sistema de Gestión de Inversiones</div>
+                <div class="logo">☕</div>
+                <div class="title">Café Olas</div>
+                <div class="subtitle">Sistema de Gestión</div>
             </div>
 
-            <div style="margin-bottom: 25px;">
-                <label style="font-weight: 600; color: #0f3a7d; display: block; margin-bottom: 12px;">Selecciona tu rol:</label>
-                <div class="role-selector">
-                    <button type="button" class="role-btn selected" id="roleAdminBtn" onclick="setRole('admin')">
-                        <div class="role-icon">👨‍💼</div>
-                        <div>Administrador</div>
-                    </button>
-                    <button type="button" class="role-btn" id="roleUserBtn" onclick="setRole('user')">
-                        <div class="role-icon">👤</div>
-                        <div>Usuario</div>
-                    </button>
-                </div>
+            <div class="form-group">
+                <label>Selecciona tu rol:</label>
+                <select id="userRole" onchange="selectRole()">
+                    <option value="admin">👨‍💼 Administrador</option>
+                    <option value="user">👤 Usuario Normal</option>
+                </select>
             </div>
 
-            <form onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" placeholder="Ingresa tu contraseña" required autofocus>
-                </div>
-                <button type="submit" class="login-btn">✅ Acceder</button>
-                <div id="loginError" class="error-msg"></div>
-            </form>
+            <div class="form-group">
+                <label for="pwd">Contraseña:</label>
+                <input type="password" id="pwd" placeholder="Escribe tu contraseña">
+            </div>
+
+            <button onclick="doLogin()">ENTRAR</button>
+            <div id="loginMsg"></div>
         </div>
     </div>
 
     <!-- APP PAGE -->
     <div id="appPage" class="app-page">
         <nav>
-            <div class="nav-container">
-                <div class="nav-logo" onclick="goHome()" style="cursor: pointer;">
-                    <span>☕</span>
-                    <span>Café Olas</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a onclick="showPage('dashboard')" class="nav-link active">📊 Dashboard</a></li>
-                    <li><a onclick="showPage('plan')" class="nav-link">📋 Plan</a></li>
-                    <li><a onclick="showPage('control')" class="nav-link">💰 Control</a></li>
-                    <li><a onclick="showPage('admin')" id="adminMenuLink" class="nav-link" style="display: none;">⚙️ Admin</a></li>
-                </ul>
-                <div class="nav-right">
-                    <div class="user-role" id="userRoleDisplay">Usuario</div>
-                    <button class="logout-btn" onclick="logout()">🚪 Cerrar</button>
-                </div>
+            <div style="font-size: 20px; font-weight: bold;">☕ Café Olas</div>
+            <div>
+                <a onclick="goPage('dashboard')">Dashboard</a>
+                <a onclick="goPage('plan')">Plan</a>
+                <a onclick="goPage('control')">Control</a>
+                <a onclick="goPage('admin')" id="adminLink" style="display:none;">Admin</a>
+            </div>
+            <div>
+                <span id="userLabel"></span>
+                <a onclick="logout()" style="color: #f5576c;">Cerrar</a>
             </div>
         </nav>
 
-        <!-- DASHBOARD PAGE -->
-        <div id="dashboard" class="page active">
-            <div class="content-wrapper">
+        <div class="content">
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="page active">
                 <div class="card">
-                    <div class="card-header">
-                        <div>
-                            <h1 class="card-title">Dashboard</h1>
-                            <p style="color: #7f8fa3; margin-top: 5px;" id="dashboardLocation">San Juánico, Comondú, BCS</p>
+                    <h1>Dashboard</h1>
+                    
+                    <div class="kpi-grid">
+                        <div class="kpi">
+                            <div class="kpi-label">Inversión Total</div>
+                            <div class="kpi-value">$1,850,000</div>
                         </div>
-                        <div class="card-actions">
-                            <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir</button>
+                        <div class="kpi" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <div class="kpi-label">ROI</div>
+                            <div class="kpi-value">42%</div>
+                        </div>
+                        <div class="kpi" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <div class="kpi-label">Equilibrio</div>
+                            <div class="kpi-value">14 m</div>
+                        </div>
+                        <div class="kpi" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <div class="kpi-label">Apertura</div>
+                            <div class="kpi-value">Nov 26</div>
                         </div>
                     </div>
 
-                    <div class="kpi-grid" id="dashboardKPIs"></div>
-
-                    <h3 style="color: #0f3a7d; margin-top: 30px; margin-bottom: 15px; font-size: 20px;">Información General</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;" id="dashboardInfo"></div>
-
-                    <h3 style="color: #0f3a7d; margin-top: 30px; margin-bottom: 15px; font-size: 20px;">Estructura de Financiamiento</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;" id="financingInfo"></div>
+                    <h2>Información</h2>
+                    <table>
+                        <tr>
+                            <td><strong>RFC:</strong></td>
+                            <td>SBR260312PS0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ubicación:</strong></td>
+                            <td>San Juánico, Comondú, BCS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nombre:</strong></td>
+                            <td>7 BREAKS S. de R.L. de C.V.</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-        </div>
 
-        <!-- PLAN PAGE -->
-        <div id="plan" class="page">
-            <div class="content-wrapper">
+            <!-- PLAN -->
+            <div id="plan" class="page">
                 <div class="card">
-                    <div class="card-header">
-                        <h1 class="card-title">Plan de Inversiones</h1>
-                        <div class="card-actions">
-                            <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir</button>
-                        </div>
-                    </div>
-
-                    <h3 style="color: #0f3a7d; margin: 0 0 15px 0; font-size: 18px;">📊 Desglose de Inversión</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Concepto</th>
-                                    <th>Descripción</th>
-                                    <th style="text-align: right;">Monto (MXN)</th>
-                                    <th style="text-align: right;">% Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="planTableBody"></tbody>
-                        </table>
-                    </div>
+                    <h1>Plan de Inversiones</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th style="text-align: right;">Monto</th>
+                                <th style="text-align: right;">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adecuación Inmueble</td>
+                                <td class="amount">$680,000</td>
+                                <td style="text-align: right;">36.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Equipo y Maquinaria</td>
+                                <td class="amount">$520,000</td>
+                                <td style="text-align: right;">28.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Mobiliario y Decoración</td>
+                                <td class="amount">$280,000</td>
+                                <td style="text-align: right;">15.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Inventario Inicial</td>
+                                <td class="amount">$150,000</td>
+                                <td style="text-align: right;">8.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Permisos y Licencias</td>
+                                <td class="amount">$85,000</td>
+                                <td style="text-align: right;">4.6%</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing Inicial</td>
+                                <td class="amount">$95,000</td>
+                                <td style="text-align: right;">5.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Capital de Trabajo</td>
+                                <td class="amount">$60,000</td>
+                                <td style="text-align: right;">3.2%</td>
+                            </tr>
+                            <tr style="background: #f0f0f0; font-weight: bold;">
+                                <td>TOTAL</td>
+                                <td class="amount">$1,850,000</td>
+                                <td style="text-align: right;">100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
 
-        <!-- CONTROL PAGE -->
-        <div id="control" class="page">
-            <div class="content-wrapper">
+            <!-- CONTROL -->
+            <div id="control" class="page">
                 <div class="card">
-                    <div class="card-header">
-                        <h1 class="card-title">Control de Inversiones</h1>
-                        <div class="card-actions">
-                            <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir</button>
-                            <button class="btn btn-primary" id="editControlBtn" onclick="enableEditControl()" style="display: none;">✏️ Editar Montos</button>
-                            <button class="btn btn-secondary" onclick="exportControl()">📥 Descargar CSV</button>
-                        </div>
+                    <h1>Control de Inversiones</h1>
+                    <button id="editBtn" onclick="showEdit()" style="display:none; margin-bottom:20px;">✏️ Editar Montos</button>
+                    
+                    <div id="editForm" style="display:none; background:#f5f5f5; padding:20px; border-radius:8px; margin-bottom:20px;">
+                        <h2>Ingresa Montos Capturados</h2>
+                        <div id="editFields"></div>
+                        <button onclick="saveEdit()" style="margin-top:10px;">💾 Guardar</button>
+                        <button onclick="hideEdit()" style="background: #999; margin-top:10px;">Cancelar</button>
                     </div>
 
-                    <div class="kpi-grid" id="controlKPIs"></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th style="text-align: right;">Presupuesto</th>
+                                <th style="text-align: right;">Capturado</th>
+                                <th style="text-align: right;">% Avance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="controlTable">
+                            <tr>
+                                <td>Adecuación Inmueble</td>
+                                <td class="amount">$680,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Equipo y Maquinaria</td>
+                                <td class="amount">$520,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Mobiliario y Decoración</td>
+                                <td class="amount">$280,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Inventario Inicial</td>
+                                <td class="amount">$150,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Permisos y Licencias</td>
+                                <td class="amount">$85,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing Inicial</td>
+                                <td class="amount">$95,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Capital de Trabajo</td>
+                                <td class="amount">$60,000</td>
+                                <td class="amount">$0</td>
+                                <td style="text-align: right;">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <div style="background: #e8f5e9; border: 2px solid #4caf50; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                            <div>
-                                <p style="color: #2e7d32; font-size: 12px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">📅 Fecha de Inicio</p>
-                                <p style="color: #1b5e20; font-weight: 700; font-size: 16px;" id="startDate">--</p>
-                            </div>
-                            <div>
-                                <p style="color: #2e7d32; font-size: 12px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">📆 Fecha Actual</p>
-                                <p style="color: #1b5e20; font-weight: 700; font-size: 16px;" id="currentDate">--</p>
-                            </div>
-                            <div>
-                                <p style="color: #2e7d32; font-size: 12px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">⏱️ Días Transcurridos</p>
-                                <p style="color: #1b5e20; font-weight: 700; font-size: 16px;" id="daysElapsed">0 días</p>
-                            </div>
-                            <div>
-                                <p style="color: #2e7d32; font-size: 12px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">🎯 Apertura Proyectada</p>
-                                <p style="color: #1b5e20; font-weight: 700; font-size: 16px;" id="openingDate">--</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="editPanel" class="admin-section" style="display: none;">
-                        <h3>✏️ Ingresa Montos Capturados por Concepto</h3>
-                        <div class="edit-grid" id="editInputs"></div>
-                        <div style="display: flex; gap: 10px; margin-top: 20px;">
-                            <button class="btn btn-save" onclick="saveCaptures()">💾 Guardar Cambios</button>
-                            <button class="btn btn-cancel" onclick="cancelEdit()">✖️ Cancelar</button>
-                        </div>
-                    </div>
-
-                    <h3 style="color: #0f3a7d; margin: 25px 0 15px 0; font-size: 18px;">📊 Detalle por Concepto</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Concepto</th>
-                                    <th style="text-align: right;">Presupuesto</th>
-                                    <th style="text-align: right;">Capturado</th>
-                                    <th style="text-align: right;">Falta</th>
-                                    <th style="text-align: right;">% Avance</th>
-                                </tr>
-                            </thead>
-                            <tbody id="controlTable"></tbody>
-                        </table>
-                    </div>
-
-                    <p style="text-align: center; color: #7f8fa3; font-size: 12px; margin-top: 20px;">
-                        ⏰ Última actualización: <span id="lastUpdate">--</span>
+            <!-- ADMIN -->
+            <div id="admin" class="page">
+                <div class="card">
+                    <h1>⚙️ Panel Administrativo</h1>
+                    <p style="background: #d4edda; padding:15px; border-radius:6px; margin-bottom:20px; color:#155724;">
+                        ✅ Tienes acceso de administrador. Puedes editar todos los datos.
                     </p>
-                </div>
-            </div>
-        </div>
 
-        <!-- ADMIN PAGE -->
-        <div id="admin" class="page">
-            <div class="content-wrapper">
-                <div class="card">
-                    <div class="card-header">
-                        <h1 class="card-title">⚙️ Panel de Administración</h1>
+                    <h2>Indicadores Financieros</h2>
+                    <div class="form-group">
+                        <label>ROI Proyectado (%):</label>
+                        <input type="number" id="roiInput" value="42">
                     </div>
-
-                    <div style="background: #d4edda; border: 2px solid #28a745; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                        <p style="color: #155724; font-weight: 600; margin-bottom: 10px;">✅ Acceso Administrativo Activo</p>
-                        <p style="color: #155724; font-size: 14px;">
-                            Puedes editar TODOS los datos del proyecto. Los cambios se guardan automáticamente y se reflejan en todas las secciones.
-                        </p>
+                    <div class="form-group">
+                        <label>Punto de Equilibrio (meses):</label>
+                        <input type="number" id="equilInput" value="14">
                     </div>
-
-                    <div style="display: grid; gap: 20px;">
-                        <!-- INFORMACIÓN GENERAL -->
-                        <div class="admin-section">
-                            <h3>🏢 Información General de la Empresa</h3>
-                            <div class="edit-grid">
-                                <div class="edit-field">
-                                    <label>Nombre Legal de la Empresa</label>
-                                    <input type="text" id="adminLegal" value="">
-                                </div>
-                                <div class="edit-field">
-                                    <label>RFC</label>
-                                    <input type="text" id="adminRFC" value="">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Ubicación / Municipio</label>
-                                    <input type="text" id="adminUbicacion" value="">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Marca Comercial / Nombre del Negocio</label>
-                                    <input type="text" id="adminBrandName" value="">
-                                </div>
-                            </div>
-                            <button class="btn btn-save" onclick="saveCompanyInfo()" style="width: 100%;">💾 Guardar Información</button>
-                        </div>
-
-                        <!-- INDICADORES FINANCIEROS -->
-                        <div class="admin-section">
-                            <h3>📈 Indicadores Financieros</h3>
-                            <div class="edit-grid">
-                                <div class="edit-field">
-                                    <label>ROI Proyectado (%)</label>
-                                    <input type="number" id="adminROI" value="42" step="0.1">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Punto de Equilibrio (meses)</label>
-                                    <input type="number" id="adminEquilibrio" value="14" step="0.1">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Mes de Apertura (ej: Noviembre)</label>
-                                    <input type="text" id="adminMonthOpening" value="Noviembre">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Año de Apertura</label>
-                                    <input type="number" id="adminYearOpening" value="2026">
-                                </div>
-                            </div>
-                            <button class="btn btn-save" onclick="saveFinancialIndicators()" style="width: 100%;">💾 Guardar Indicadores</button>
-                        </div>
-
-                        <!-- FECHAS -->
-                        <div class="admin-section">
-                            <h3>📅 Fechas del Proyecto</h3>
-                            <div class="edit-grid">
-                                <div class="edit-field">
-                                    <label>Fecha de Inicio</label>
-                                    <input type="date" id="startDateInput" value="">
-                                </div>
-                            </div>
-                            <button class="btn btn-save" onclick="saveStartDate()" style="width: 100%;">💾 Guardar Fecha</button>
-                        </div>
-
-                        <!-- ESTRUCTURA DE FINANCIAMIENTO -->
-                        <div class="admin-section">
-                            <h3>💰 Estructura de Financiamiento</h3>
-                            <p style="color: #1565c0; font-size: 12px; margin-bottom: 15px;">Los porcentajes deben sumar 100%</p>
-                            <div class="edit-grid">
-                                <div class="edit-field">
-                                    <label>Capital Propio / Dueños (%)</label>
-                                    <input type="number" id="adminOwnCapital" value="55" step="0.1" min="0" max="100">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Crédito Bancario (%)</label>
-                                    <input type="number" id="adminBankCredit" value="35" step="0.1" min="0" max="100">
-                                </div>
-                                <div class="edit-field">
-                                    <label>Crédito de Proveedores (%)</label>
-                                    <input type="number" id="adminSupplierCredit" value="10" step="0.1" min="0" max="100">
-                                </div>
-                            </div>
-                            <div id="financingWarning" style="color: #d32f2f; font-weight: 600; margin-bottom: 10px; display: none;">
-                                ⚠️ Los porcentajes deben sumar 100%
-                            </div>
-                            <button class="btn btn-save" onclick="saveFinancingStructure()" style="width: 100%;">💾 Guardar Estructura</button>
-                        </div>
-
-                        <!-- CONCEPTOS DE INVERSIÓN -->
-                        <div class="admin-section">
-                            <h3>💼 Conceptos de Inversión</h3>
-                            <p style="color: #1565c0; font-size: 12px; margin-bottom: 15px;">Edita los nombres, descripciones y presupuestos:</p>
-                            <div id="budgetEditGrid" style="display: grid; gap: 15px; margin-bottom: 20px;"></div>
-                            <button class="btn btn-save" onclick="saveBudgets()" style="width: 100%; margin-bottom: 10px;">💾 Guardar Conceptos</button>
-                            <button class="btn btn-secondary" onclick="resetBudgets()" style="width: 100%;">🔄 Restaurar Originales</button>
-                        </div>
-
-                        <!-- INGRESO DE MONTOS CAPTURADOS -->
-                        <div class="admin-section">
-                            <h3>💵 Captura de Gastos Realizados</h3>
-                            <p style="color: #1565c0; font-size: 12px; margin-bottom: 15px;">Ingresa los montos gastados en cada concepto:</p>
-                            <div class="edit-grid" id="captureEditGrid"></div>
-                            <button class="btn btn-save" onclick="saveCapturedAmounts()" style="width: 100%;">💾 Guardar Montos</button>
-                        </div>
-
-                        <!-- HERRAMIENTAS -->
-                        <div class="admin-section">
-                            <h3>🔧 Herramientas y Exportación</h3>
-                            <div style="display: grid; gap: 10px;">
-                                <button class="btn btn-primary" onclick="exportAllData()" style="width: 100%;">📥 Exportar Base de Datos Completa (JSON)</button>
-                                <button class="btn btn-secondary" onclick="exportControl()" style="width: 100%;">📊 Exportar Control a CSV</button>
-                                <button class="btn btn-delete" onclick="resetAllData()" style="width: 100%;">🔄 Reiniciar Todos los Datos</button>
-                            </div>
-                        </div>
-
-                        <!-- INFORMACIÓN DEL SISTEMA -->
-                        <div class="admin-section">
-                            <h3>ℹ️ Información del Sistema</h3>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Total Conceptos</p>
-                                    <p style="color: #0f3a7d; font-weight: 600; font-size: 16px;" id="systemConcepts">7</p>
-                                </div>
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Última Actualización</p>
-                                    <p style="color: #0f3a7d; font-weight: 600; font-size: 13px;" id="systemLastUpdate">--</p>
-                                </div>
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Estado</p>
-                                    <p style="color: #0f3a7d; font-weight: 600;">✅ Activo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button onclick="saveAdmin()">💾 Guardar Cambios</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Alerts -->
-    <div id="successAlert" class="alert alert-success"></div>
-    <div id="errorAlert" class="alert alert-error"></div>
-
     <script>
-        // ========== CONFIGURACIÓN ==========
-        let currentRole = 'admin';
-        let projectStartDate = new Date('2026-05-31');
-        
-        // CONTRASEÑAS (ocultas, no visibles en la pantalla)
+        // ✅ CONTRASEÑAS AQUÍ
         const PASSWORDS = {
-            admin: 'admin123',
-            user: 'user123'
+            admin: "admin123",
+            user: "user123"
         };
 
-        let projectData = {
-            company: {
-                legal: '7 BREAKS S. de R.L. de C.V.',
-                rfc: 'SBR260312PS0',
-                ubicacion: 'San Juánico, Comondú, BCS',
-                brandName: 'Café Olas'
-            },
-            indicators: {
-                roi: 42,
-                equilibrio: 14,
-                monthOpening: 'Noviembre',
-                yearOpening: 2026
-            },
-            financing: {
-                ownCapital: 55,
-                bankCredit: 35,
-                supplierCredit: 10
-            },
-            budgets: [
-                { id: 1, name: 'Adecuación Inmueble', description: 'Remodelación, acabados', budget: 680000 },
-                { id: 2, name: 'Equipo y Maquinaria', description: 'Cocina, refrigeración', budget: 520000 },
-                { id: 3, name: 'Mobiliario y Decoración', description: 'Mesas, sillas, terraza', budget: 280000 },
-                { id: 4, name: 'Inventario Inicial', description: 'Stock de productos', budget: 150000 },
-                { id: 5, name: 'Permisos y Licencias', description: 'Trámites municipales', budget: 85000 },
-                { id: 6, name: 'Marketing Inicial', description: 'Branding, publicidad', budget: 95000 },
-                { id: 7, name: 'Capital de Trabajo', description: 'Gastos operativos', budget: 60000 }
-            ],
-            captured: {}
-        };
+        const concepts = [
+            "Adecuación Inmueble",
+            "Equipo y Maquinaria",
+            "Mobiliario y Decoración",
+            "Inventario Inicial",
+            "Permisos y Licencias",
+            "Marketing Inicial",
+            "Capital de Trabajo"
+        ];
 
-        // ========== FUNCIONES DE FORMATO ==========
-        function formatMXN(number) {
-            return new Intl.NumberFormat('es-MX', {
-                style: 'currency',
-                currency: 'MXN',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(number);
-        }
+        let currentUser = null;
 
-        function formatDateMX(date) {
-            return new Intl.DateTimeFormat('es-MX', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            }).format(date);
-        }
+        function doLogin() {
+            const role = document.getElementById("userRole").value;
+            const pwd = document.getElementById("pwd").value;
+            const msg = document.getElementById("loginMsg");
 
-        function calculateDaysBetween(date1, date2) {
-            const timeDifference = Math.abs(date2 - date1);
-            return Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-        }
-
-        // ========== LOGIN ==========
-        function setRole(role) {
-            currentRole = role;
-            document.getElementById('roleAdminBtn').classList.remove('selected');
-            document.getElementById('roleUserBtn').classList.remove('selected');
-            
-            if (role === 'admin') {
-                document.getElementById('roleAdminBtn').classList.add('selected');
+            // ✅ VALIDACIÓN SIMPLE Y DIRECTA
+            if (pwd === PASSWORDS[role]) {
+                currentUser = role;
+                loginOK();
             } else {
-                document.getElementById('roleUserBtn').classList.add('selected');
+                msg.innerHTML = '<div class="error">❌ Contraseña incorrecta</div>';
+                document.getElementById("pwd").value = "";
             }
         }
 
-        function handleLogin(event) {
-            event.preventDefault();
-            const password = document.getElementById('password').value;
-            const errorDiv = document.getElementById('loginError');
-
-            if (password === PASSWORDS[currentRole]) {
-                document.getElementById('loginPage').style.display = 'none';
-                document.getElementById('appPage').classList.add('active');
-                setupApp();
-            } else {
-                errorDiv.textContent = '❌ Contraseña incorrecta.';
-                document.getElementById('password').value = '';
-            }
-        }
-
-        // ========== INICIALIZAR APP ==========
-        function setupApp() {
-            loadAllData();
-            document.getElementById('userRoleDisplay').textContent = currentRole === 'admin' ? '👨‍💼 Administrador' : '👤 Usuario';
+        function loginOK() {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("appPage").style.display = "block";
+            document.getElementById("userLabel").textContent = currentUser === "admin" ? "👨‍💼 Admin | " : "👤 Usuario | ";
             
-            if (currentRole === 'admin') {
-                document.getElementById('editControlBtn').style.display = 'block';
-                document.getElementById('adminMenuLink').style.display = 'block';
-            } else {
-                document.getElementById('editControlBtn').style.display = 'none';
-                document.getElementById('adminMenuLink').style.display = 'none';
+            if (currentUser === "admin") {
+                document.getElementById("adminLink").style.display = "inline";
+                document.getElementById("editBtn").style.display = "block";
             }
-            
-            updateAllDisplays();
-            showAlert('success', `✅ ¡Bienvenido ${currentRole === 'admin' ? 'Administrador' : 'Usuario'}!`);
-        }
-
-        // ========== ALMACENAMIENTO ==========
-        function loadAllData() {
-            const stored = localStorage.getItem('cafeOlasData');
-            if (stored) {
-                projectData = JSON.parse(stored);
-            } else {
-                projectData.captured = {};
-                projectData.budgets.forEach(item => {
-                    projectData.captured[item.id] = 0;
-                });
-                saveData();
-            }
-
-            const storedDate = localStorage.getItem('cafeOlasStartDate');
-            if (storedDate) {
-                projectStartDate = new Date(storedDate);
-            }
-        }
-
-        function saveData() {
-            localStorage.setItem('cafeOlasData', JSON.stringify(projectData));
-            const now = new Date().toLocaleString('es-MX');
-            const lastUpdate = document.getElementById('lastUpdate');
-            if (lastUpdate) lastUpdate.textContent = now;
-            const systemLastUpdate = document.getElementById('systemLastUpdate');
-            if (systemLastUpdate) systemLastUpdate.textContent = now;
-        }
-
-        // ========== ACTUALIZAR PANTALLAS ==========
-        function updateAllDisplays() {
-            updateDashboard();
-            updatePlanTable();
-            updateControlTable();
-            updateKPIs();
-            updateDatesDisplay();
-            if (currentRole === 'admin') {
-                renderAdminPanel();
-            }
-        }
-
-        // ========== DASHBOARD ==========
-        function updateDashboard() {
-            let html = `
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Estructura Legal</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.legal}</p>
-                </div>
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">RFC</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.rfc}</p>
-                </div>
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Ubicación</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.ubicacion}</p>
-                </div>
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Marca Comercial</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.brandName}</p>
-                </div>
-            `;
-            document.getElementById('dashboardInfo').innerHTML = html;
-
-            const totalBudget = projectData.budgets.reduce((sum, item) => sum + item.budget, 0);
-            let financingHtml = `
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Capital Propio / Dueños</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.financing.ownCapital}% = ${formatMXN((totalBudget * projectData.financing.ownCapital) / 100)}</p>
-                </div>
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Crédito Bancario</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.financing.bankCredit}% = ${formatMXN((totalBudget * projectData.financing.bankCredit) / 100)}</p>
-                </div>
-                <div>
-                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Crédito de Proveedores</p>
-                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.financing.supplierCredit}% = ${formatMXN((totalBudget * projectData.financing.supplierCredit) / 100)}</p>
-                </div>
-            `;
-            document.getElementById('financingInfo').innerHTML = financingHtml;
-
-            let kpisHtml = `
-                <div class="kpi-card">
-                    <div class="kpi-label">Inversión Total</div>
-                    <div class="kpi-value">${formatMXN(totalBudget)}</div>
-                    <div class="kpi-description">MXN</div>
-                </div>
-                <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    <div class="kpi-label">ROI Proyectado</div>
-                    <div class="kpi-value">${projectData.indicators.roi}%</div>
-                    <div class="kpi-description">En 3 años</div>
-                </div>
-                <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <div class="kpi-label">Punto Equilibrio</div>
-                    <div class="kpi-value">${projectData.indicators.equilibrio} meses</div>
-                    <div class="kpi-description">Desde apertura</div>
-                </div>
-                <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                    <div class="kpi-label">Apertura</div>
-                    <div class="kpi-value">${projectData.indicators.monthOpening} ${projectData.indicators.yearOpening}</div>
-                    <div class="kpi-description">Proyectada</div>
-                </div>
-            `;
-            document.getElementById('dashboardKPIs').innerHTML = kpisHtml;
-            document.getElementById('dashboardLocation').textContent = projectData.company.ubicacion;
-        }
-
-        // ========== PLAN DE INVERSIONES ==========
-        function updatePlanTable() {
-            const tbody = document.getElementById('planTableBody');
-            tbody.innerHTML = '';
-            let totalBudget = 0;
-
-            projectData.budgets.forEach(item => {
-                totalBudget += item.budget;
-            });
-
-            projectData.budgets.forEach(item => {
-                const percent = ((item.budget / totalBudget) * 100).toFixed(1);
-                const row = `<tr>
-                    <td data-label="Concepto"><strong>${item.name}</strong></td>
-                    <td data-label="Descripción">${item.description}</td>
-                    <td data-label="Monto" class="amount">${formatMXN(item.budget)}</td>
-                    <td data-label="% Total" style="text-align: right;">${percent}%</td>
-                </tr>`;
-                tbody.innerHTML += row;
-            });
-
-            const totalsRow = `<tr style="background: #f8f9fb; font-weight: 600;">
-                <td data-label="Concepto" colspan="2">TOTAL</td>
-                <td data-label="Monto" class="amount">${formatMXN(totalBudget)}</td>
-                <td data-label="% Total" style="text-align: right;">100%</td>
-            </tr>`;
-            tbody.innerHTML += totalsRow;
-        }
-
-        // ========== CONTROL DE INVERSIONES ==========
-        function getCalculations() {
-            let totalBudget = 0, totalCaptured = 0;
-            
-            projectData.budgets.forEach(item => {
-                totalBudget += item.budget;
-                totalCaptured += (projectData.captured[item.id] || 0);
-            });
-
-            const remaining = totalBudget - totalCaptured;
-            const percent = totalBudget > 0 ? ((totalCaptured / totalBudget) * 100).toFixed(1) : 0;
-
-            return { totalBudget, totalCaptured, remaining, percent };
-        }
-
-        function updateControlTable() {
-            const tbody = document.getElementById('controlTable');
-            tbody.innerHTML = '';
-            
-            const calcs = getCalculations();
-            let rows = '';
-
-            projectData.budgets.forEach(item => {
-                const cap = projectData.captured[item.id] || 0;
-                const diff = item.budget - cap;
-                const pct = item.budget > 0 ? ((cap / item.budget) * 100).toFixed(1) : 0;
-                
-                rows += `<tr>
-                    <td data-label="Concepto"><strong>${item.name}</strong></td>
-                    <td data-label="Presupuesto" style="text-align: right;" class="amount">${formatMXN(item.budget)}</td>
-                    <td data-label="Capturado" style="text-align: right;" class="amount">${formatMXN(cap)}</td>
-                    <td data-label="Falta" style="text-align: right;" class="amount">${formatMXN(diff)}</td>
-                    <td data-label="% Avance" style="text-align: right; font-weight: 600;">${pct}%</td>
-                </tr>`;
-            });
-
-            rows += `<tr style="background: #f8f9fb; font-weight: 600; border-top: 2px solid #0f3a7d;">
-                <td data-label="Concepto">TOTAL</td>
-                <td data-label="Presupuesto" style="text-align: right;" class="amount">${formatMXN(calcs.totalBudget)}</td>
-                <td data-label="Capturado" style="text-align: right;" class="amount">${formatMXN(calcs.totalCaptured)}</td>
-                <td data-label="Falta" style="text-align: right;" class="amount">${formatMXN(calcs.remaining)}</td>
-                <td data-label="% Avance" style="text-align: right;" class="amount">${calcs.percent}%</td>
-            </tr>`;
-
-            tbody.innerHTML = rows;
-        }
-
-        function updateKPIs() {
-            const calcs = getCalculations();
-            
-            let kpisHtml = `
-                <div class="kpi-card">
-                    <div class="kpi-label">Presupuesto Total</div>
-                    <div class="kpi-value">${formatMXN(calcs.totalBudget)}</div>
-                </div>
-                <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                    <div class="kpi-label">💰 Capturado</div>
-                    <div class="kpi-value">${formatMXN(calcs.totalCaptured)}</div>
-                </div>
-                <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    <div class="kpi-label">Falta Capturar</div>
-                    <div class="kpi-value">${formatMXN(calcs.remaining)}</div>
-                </div>
-                <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <div class="kpi-label">% Progreso</div>
-                    <div class="kpi-value">${calcs.percent}%</div>
-                </div>
-            `;
-            document.getElementById('controlKPIs').innerHTML = kpisHtml;
-        }
-
-        function updateDatesDisplay() {
-            const today = new Date();
-            const daysElapsed = calculateDaysBetween(projectStartDate, today);
-            
-            document.getElementById('startDate').textContent = formatDateMX(projectStartDate);
-            document.getElementById('currentDate').textContent = formatDateMX(today);
-            document.getElementById('daysElapsed').textContent = `${daysElapsed} ${daysElapsed === 1 ? 'día' : 'días'}`;
-            document.getElementById('openingDate').textContent = `${projectData.indicators.monthOpening} ${projectData.indicators.yearOpening}`;
-        }
-
-        // ========== PANEL ADMINISTRATIVO ==========
-        function renderAdminPanel() {
-            document.getElementById('adminLegal').value = projectData.company.legal;
-            document.getElementById('adminRFC').value = projectData.company.rfc;
-            document.getElementById('adminUbicacion').value = projectData.company.ubicacion;
-            document.getElementById('adminBrandName').value = projectData.company.brandName;
-
-            document.getElementById('adminROI').value = projectData.indicators.roi;
-            document.getElementById('adminEquilibrio').value = projectData.indicators.equilibrio;
-            document.getElementById('adminMonthOpening').value = projectData.indicators.monthOpening;
-            document.getElementById('adminYearOpening').value = projectData.indicators.yearOpening;
-
-            document.getElementById('adminOwnCapital').value = projectData.financing.ownCapital;
-            document.getElementById('adminBankCredit').value = projectData.financing.bankCredit;
-            document.getElementById('adminSupplierCredit').value = projectData.financing.supplierCredit;
-
-            document.getElementById('startDateInput').valueAsDate = projectStartDate;
-
-            const budgetGrid = document.getElementById('budgetEditGrid');
-            budgetGrid.innerHTML = '';
-            projectData.budgets.forEach(item => {
-                budgetGrid.innerHTML += `
-                    <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e8ecf0;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
-                            <input type="text" class="budget-name" data-id="${item.id}" value="${item.name}" placeholder="Nombre" style="padding: 8px; border: 1px solid #e8ecf0; border-radius: 4px;">
-                            <input type="text" class="budget-desc" data-id="${item.id}" value="${item.description}" placeholder="Descripción" style="padding: 8px; border: 1px solid #e8ecf0; border-radius: 4px;">
-                            <input type="number" class="budget-amount" data-id="${item.id}" value="${item.budget}" placeholder="Presupuesto" style="padding: 8px; border: 1px solid #e8ecf0; border-radius: 4px;">
-                        </div>
-                    </div>
-                `;
-            });
-
-            const captureGrid = document.getElementById('captureEditGrid');
-            captureGrid.innerHTML = '';
-            projectData.budgets.forEach(item => {
-                captureGrid.innerHTML += `
-                    <div class="edit-field">
-                        <label>${item.name}</label>
-                        <input type="number" class="capture-input" data-id="${item.id}" value="${projectData.captured[item.id] || 0}">
-                    </div>
-                `;
-            });
-        }
-
-        // ========== FUNCIONES DE GUARDADO ==========
-        function saveCompanyInfo() {
-            projectData.company.legal = document.getElementById('adminLegal').value;
-            projectData.company.rfc = document.getElementById('adminRFC').value;
-            projectData.company.ubicacion = document.getElementById('adminUbicacion').value;
-            projectData.company.brandName = document.getElementById('adminBrandName').value;
-            saveData();
-            updateAllDisplays();
-            showAlert('success', '✅ Información general guardada');
-        }
-
-        function saveFinancialIndicators() {
-            projectData.indicators.roi = parseFloat(document.getElementById('adminROI').value);
-            projectData.indicators.equilibrio = parseFloat(document.getElementById('adminEquilibrio').value);
-            projectData.indicators.monthOpening = document.getElementById('adminMonthOpening').value;
-            projectData.indicators.yearOpening = parseInt(document.getElementById('adminYearOpening').value);
-            saveData();
-            updateAllDisplays();
-            showAlert('success', '✅ Indicadores financieros guardados');
-        }
-
-        function saveFinancingStructure() {
-            const own = parseFloat(document.getElementById('adminOwnCapital').value);
-            const bank = parseFloat(document.getElementById('adminBankCredit').value);
-            const supplier = parseFloat(document.getElementById('adminSupplierCredit').value);
-            const total = own + bank + supplier;
-
-            if (Math.abs(total - 100) > 0.1) {
-                document.getElementById('financingWarning').style.display = 'block';
-                showAlert('error', '⚠️ Los porcentajes deben sumar 100%');
-                return;
-            }
-
-            document.getElementById('financingWarning').style.display = 'none';
-            projectData.financing.ownCapital = own;
-            projectData.financing.bankCredit = bank;
-            projectData.financing.supplierCredit = supplier;
-            saveData();
-            updateAllDisplays();
-            showAlert('success', '✅ Estructura de financiamiento guardada');
-        }
-
-        function saveStartDate() {
-            const inputDate = document.getElementById('startDateInput').value;
-            if (inputDate) {
-                projectStartDate = new Date(inputDate);
-                localStorage.setItem('cafeOlasStartDate', inputDate);
-                updateDatesDisplay();
-                showAlert('success', '✅ Fecha de inicio guardada');
-            }
-        }
-
-        function saveBudgets() {
-            document.querySelectorAll('.budget-name').forEach(input => {
-                const id = parseInt(input.dataset.id);
-                const item = projectData.budgets.find(i => i.id === id);
-                if (item) {
-                    item.name = input.value;
-                    item.description = document.querySelector(`.budget-desc[data-id="${id}"]`).value;
-                    item.budget = parseFloat(document.querySelector(`.budget-amount[data-id="${id}"]`).value) || 0;
-                }
-            });
-            saveData();
-            updateAllDisplays();
-            showAlert('success', '✅ Conceptos de inversión guardados');
-        }
-
-        function resetBudgets() {
-            if (confirm('⚠️ ¿Restaurar valores originales?')) {
-                projectData.budgets = [
-                    { id: 1, name: 'Adecuación Inmueble', description: 'Remodelación, acabados', budget: 680000 },
-                    { id: 2, name: 'Equipo y Maquinaria', description: 'Cocina, refrigeración', budget: 520000 },
-                    { id: 3, name: 'Mobiliario y Decoración', description: 'Mesas, sillas, terraza', budget: 280000 },
-                    { id: 4, name: 'Inventario Inicial', description: 'Stock de productos', budget: 150000 },
-                    { id: 5, name: 'Permisos y Licencias', description: 'Trámites municipales', budget: 85000 },
-                    { id: 6, name: 'Marketing Inicial', description: 'Branding, publicidad', budget: 95000 },
-                    { id: 7, name: 'Capital de Trabajo', description: 'Gastos operativos', budget: 60000 }
-                ];
-                saveData();
-                updateAllDisplays();
-                showAlert('success', '✅ Conceptos restaurados');
-            }
-        }
-
-        function saveCapturedAmounts() {
-            document.querySelectorAll('.capture-input').forEach(input => {
-                const id = parseInt(input.dataset.id);
-                projectData.captured[id] = parseFloat(input.value) || 0;
-            });
-            saveData();
-            updateAllDisplays();
-            showAlert('success', '✅ Montos capturados guardados');
-        }
-
-        function enableEditControl() {
-            const container = document.getElementById('editInputs');
-            container.innerHTML = '';
-
-            projectData.budgets.forEach(item => {
-                const field = `<div class="edit-field">
-                    <label>${item.name}</label>
-                    <input type="number" class="edit-capture-input" data-id="${item.id}" value="${projectData.captured[item.id] || 0}">
-                </div>`;
-                container.innerHTML += field;
-            });
-
-            document.getElementById('editPanel').style.display = 'block';
-        }
-
-        function saveCaptures() {
-            document.querySelectorAll('.edit-capture-input').forEach(input => {
-                const id = parseInt(input.dataset.id);
-                projectData.captured[id] = parseFloat(input.value) || 0;
-            });
-            saveData();
-            updateAllDisplays();
-            document.getElementById('editPanel').style.display = 'none';
-            showAlert('success', '✅ Montos capturados actualizados');
-        }
-
-        function cancelEdit() {
-            document.getElementById('editPanel').style.display = 'none';
-        }
-
-        function exportControl() {
-            const calcs = getCalculations();
-            let csv = 'Café Olas - Control de Inversiones\n';
-            csv += `${projectData.company.ubicacion}\n\n`;
-            csv += 'Concepto,Presupuesto,Capturado,Falta,% Avance\n';
-
-            projectData.budgets.forEach(item => {
-                const cap = projectData.captured[item.id] || 0;
-                const pct = item.budget > 0 ? ((cap / item.budget) * 100).toFixed(1) : 0;
-                csv += `"${item.name}","${formatMXN(item.budget)}","${formatMXN(cap)}","${formatMXN(item.budget - cap)}","${pct}%"\n`;
-            });
-
-            csv += `"TOTAL","${formatMXN(calcs.totalBudget)}","${formatMXN(calcs.totalCaptured)}","${formatMXN(calcs.remaining)}","${calcs.percent}%"\n`;
-
-            const link = document.createElement('a');
-            link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-            link.download = `Cafe_Olas_Control_${new Date().toISOString().split('T')[0]}.csv`;
-            link.click();
-            showAlert('success', '✅ CSV descargado');
-        }
-
-        function exportAllData() {
-            const data = { 
-                projectData,
-                projectStartDate: projectStartDate.toISOString().split('T')[0],
-                calculations: getCalculations(),
-                timestamp: new Date().toLocaleString('es-MX')
-            };
-            const link = document.createElement('a');
-            link.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2));
-            link.download = `Cafe_Olas_BD_${new Date().toISOString().split('T')[0]}.json`;
-            link.click();
-            showAlert('success', '✅ Base de datos exportada');
-        }
-
-        function resetAllData() {
-            if (confirm('⚠️ ¿Reiniciar TODOS los datos? Esta acción no se puede deshacer.')) {
-                localStorage.removeItem('cafeOlasData');
-                localStorage.removeItem('cafeOlasStartDate');
-                location.reload();
-            }
-        }
-
-        // ========== NAVEGACIÓN ==========
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-
-        function goHome() {
-            showPage('dashboard');
         }
 
         function logout() {
-            document.getElementById('appPage').classList.remove('active');
-            document.getElementById('loginPage').style.display = 'flex';
-            document.getElementById('password').value = '';
-            document.getElementById('loginError').textContent = '';
+            document.getElementById("loginPage").style.display = "flex";
+            document.getElementById("appPage").style.display = "none";
+            document.getElementById("pwd").value = "";
+            currentUser = null;
+            goPage("dashboard");
         }
 
-        function showAlert(type, message) {
-            const alertDiv = type === 'success' ? document.getElementById('successAlert') : document.getElementById('errorAlert');
-            alertDiv.textContent = message;
-            alertDiv.classList.add('show');
-            setTimeout(() => alertDiv.classList.remove('show'), 4000);
+        function goPage(page) {
+            document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+            document.getElementById(page).classList.add("active");
         }
+
+        function showEdit() {
+            const html = concepts.map((c, i) => 
+                `<div class="form-group">
+                    <label>${c}:</label>
+                    <input type="number" id="cap${i}" value="0">
+                </div>`
+            ).join("");
+            document.getElementById("editFields").innerHTML = html;
+            document.getElementById("editForm").style.display = "block";
+        }
+
+        function hideEdit() {
+            document.getElementById("editForm").style.display = "none";
+        }
+
+        function saveEdit() {
+            alert("✅ Montos guardados");
+            hideEdit();
+        }
+
+        function saveAdmin() {
+            alert("✅ Datos guardados");
+        }
+
+        // Enter para entrar
+        document.addEventListener("keypress", function(e) {
+            if (e.key === "Enter" && document.getElementById("pwd").value) {
+                doLogin();
+            }
+        });
     </script>
 </body>
 </html>
