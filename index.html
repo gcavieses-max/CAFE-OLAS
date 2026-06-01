@@ -146,26 +146,6 @@
             text-align: center;
         }
 
-        .info-msg {
-            background: #e3f2fd;
-            color: #1565c0;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            margin-bottom: 15px;
-            border: 1px solid #90caf9;
-        }
-
-        .credentials-box {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            margin-bottom: 15px;
-            color: #856404;
-        }
-
         /* APP SECTION */
         .app-page {
             display: none;
@@ -358,64 +338,14 @@
             color: white;
         }
 
+        .btn-delete {
+            background: #f5576c;
+            color: white;
+        }
+
         .btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-        }
-
-        /* Admin Panel */
-        .admin-section {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .admin-section h3 {
-            color: #856404;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .edit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .edit-field {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .edit-field label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #0f3a7d;
-            margin-bottom: 6px;
-        }
-
-        .edit-field input,
-        .edit-field textarea {
-            padding: 10px;
-            border: 1px solid #e8ecf0;
-            border-radius: 6px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-
-        .edit-field textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .edit-field input:focus,
-        .edit-field textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         /* KPI Cards */
@@ -494,6 +424,65 @@
             text-align: right;
         }
 
+        /* Edit Fields */
+        .edit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .edit-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .edit-field label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0f3a7d;
+            margin-bottom: 6px;
+        }
+
+        .edit-field input,
+        .edit-field textarea {
+            padding: 10px;
+            border: 1px solid #e8ecf0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .edit-field textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .edit-field input:focus,
+        .edit-field textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Admin Panel */
+        .admin-section {
+            background: #f0f2f8;
+            border: 2px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .admin-section h3 {
+            color: #0f3a7d;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* Alert */
         .alert {
             padding: 15px;
@@ -530,9 +519,528 @@
             border: 1px solid #f5c6cb;
         }
 
-        /* Print Styles */
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                padding: 0 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .edit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .card-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-container {
+                height: 60px;
+                padding: 0 10px;
+            }
+
+            .nav-logo {
+                font-size: 18px;
+            }
+
+            .nav-right {
+                gap: 8px;
+            }
+
+            .user-role {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .logout-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .content-wrapper {
+                margin: 15px auto;
+                padding: 0 12px;
+            }
+
+            .card {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 15px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 12px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .kpi-card {
+                padding: 15px;
+            }
+
+            .kpi-label {
+                font-size: 11px;
+            }
+
+            .kpi-value {
+                font-size: 24px;
+            }
+
+            .kpi-description {
+                font-size: 11px;
+            }
+
+            .edit-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .edit-field label {
+                font-size: 12px;
+            }
+
+            .edit-field input,
+            .edit-field textarea {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .admin-section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .admin-section h3 {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+
+            .table-container {
+                margin-bottom: 15px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            td {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .amount {
+                font-size: 11px;
+            }
+
+            .login-container {
+                padding: 25px;
+                max-width: 320px;
+            }
+
+            .login-logo {
+                font-size: 40px;
+            }
+
+            .login-title {
+                font-size: 20px;
+            }
+
+            .login-subtitle {
+                font-size: 12px;
+            }
+
+            .role-selector {
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+
+            .role-btn {
+                padding: 15px 10px;
+                font-size: 12px;
+            }
+
+            .role-icon {
+                font-size: 28px;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            .login-btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .nav-container {
+                height: 55px;
+                padding: 0 8px;
+            }
+
+            .nav-logo {
+                font-size: 16px;
+            }
+
+            .nav-logo span:last-child {
+                display: none;
+            }
+
+            .nav-right {
+                gap: 5px;
+            }
+
+            .user-role {
+                font-size: 9px;
+                padding: 3px 6px;
+                border-radius: 12px;
+            }
+
+            .logout-btn {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+
+            .content-wrapper {
+                margin: 10px auto;
+                padding: 0 10px;
+                max-width: 100%;
+            }
+
+            .card {
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }
+
+            .card-header {
+                margin-bottom: 12px;
+            }
+
+            .card-title {
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+
+            .card-actions {
+                width: 100%;
+                gap: 5px;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 10px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+
+            .kpi-card {
+                padding: 12px;
+                border-radius: 8px;
+            }
+
+            .kpi-label {
+                font-size: 10px;
+                margin-bottom: 5px;
+            }
+
+            .kpi-value {
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            .kpi-description {
+                font-size: 10px;
+            }
+
+            .edit-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .edit-field {
+                margin-bottom: 5px;
+            }
+
+            .edit-field label {
+                font-size: 11px;
+                margin-bottom: 4px;
+            }
+
+            .edit-field input,
+            .edit-field textarea {
+                font-size: 12px;
+                padding: 7px;
+                border-radius: 4px;
+            }
+
+            .admin-section {
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 6px;
+            }
+
+            .admin-section h3 {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .admin-section p {
+                font-size: 11px;
+            }
+
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-bottom: 10px;
+                border-radius: 6px;
+            }
+
+            table {
+                font-size: 11px;
+                min-width: 100%;
+            }
+
+            th {
+                padding: 8px;
+                font-size: 10px;
+            }
+
+            td {
+                padding: 8px;
+                font-size: 11px;
+            }
+
+            .amount {
+                font-size: 10px;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody tr {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0;
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #e8ecf0;
+                border-radius: 6px;
+                background: white;
+            }
+
+            tbody td {
+                padding: 6px 0;
+                border-bottom: 1px solid #e8ecf0;
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 10px;
+                align-items: center;
+            }
+
+            tbody td:last-child {
+                border-bottom: none;
+            }
+
+            tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #0f3a7d;
+                font-size: 10px;
+                text-transform: uppercase;
+            }
+
+            .login-container {
+                padding: 20px;
+                max-width: 100%;
+                border-radius: 12px;
+            }
+
+            .login-logo {
+                font-size: 36px;
+            }
+
+            .login-title {
+                font-size: 18px;
+            }
+
+            .login-subtitle {
+                font-size: 11px;
+            }
+
+            .role-selector {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+
+            .role-btn {
+                padding: 12px 8px;
+                font-size: 11px;
+            }
+
+            .role-icon {
+                font-size: 24px;
+            }
+
+            .form-group {
+                margin-bottom: 12px;
+            }
+
+            .form-group label {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                padding: 10px;
+                font-size: 13px;
+                border-radius: 6px;
+            }
+
+            .login-btn {
+                padding: 10px;
+                font-size: 13px;
+                margin-top: 8px;
+            }
+
+            .error-msg {
+                font-size: 11px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            .role-selector button span {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .card-title {
+                font-size: 16px;
+            }
+
+            .kpi-value {
+                font-size: 18px;
+            }
+
+            .login-container {
+                padding: 15px;
+            }
+
+            .login-logo {
+                font-size: 32px;
+            }
+
+            .login-title {
+                font-size: 16px;
+            }
+
+            .btn {
+                font-size: 10px;
+            }
+
+            table {
+                font-size: 10px;
+            }
+
+            th, td {
+                padding: 6px;
+            }
+        }
+
+        @media (min-width: 1441px) {
+            .content-wrapper {
+                max-width: 1400px;
+            }
+
+            .card {
+                padding: 40px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+
+            .edit-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .kpi-value {
+                font-size: 36px;
+            }
+
+            .card-title {
+                font-size: 32px;
+            }
+        }
+
         @media print {
-            nav, .card-actions, .admin-section, .edit-grid, .btn, .alert {
+            nav, .card-actions, .admin-section, .btn, .alert {
                 display: none !important;
             }
             
@@ -543,37 +1051,6 @@
             .card {
                 box-shadow: none;
                 page-break-inside: avoid;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .card-title {
-                font-size: 22px;
-            }
-
-            .kpi-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .edit-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card-actions {
-                width: 100%;
-            }
-
-            .btn {
-                flex: 1;
             }
         }
     </style>
@@ -588,13 +1065,7 @@
                 <div class="login-subtitle">Sistema de Gestión de Inversiones</div>
             </div>
 
-            <div class="credentials-box">
-                <strong>📌 Credenciales de Acceso:</strong><br>
-                👨‍💼 Admin: <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">admin123</code><br>
-                👤 Usuario: <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">user123</code>
-            </div>
-
-            <div style="margin-bottom: 20px;">
+            <div style="margin-bottom: 25px;">
                 <label style="font-weight: 600; color: #0f3a7d; display: block; margin-bottom: 12px;">Selecciona tu rol:</label>
                 <div class="role-selector">
                     <button type="button" class="role-btn selected" id="roleAdminBtn" onclick="setRole('admin')">
@@ -606,10 +1077,6 @@
                         <div>Usuario</div>
                     </button>
                 </div>
-            </div>
-
-            <div id="roleInfo" class="info-msg">
-                <strong>Modo Administrador:</strong> Acceso completo a edición de datos y panel administrativo.
             </div>
 
             <form onsubmit="handleLogin(event)">
@@ -651,55 +1118,20 @@
                     <div class="card-header">
                         <div>
                             <h1 class="card-title">Dashboard</h1>
-                            <p style="color: #7f8fa3; margin-top: 5px;">San Juánico, Comondú, BCS</p>
+                            <p style="color: #7f8fa3; margin-top: 5px;" id="dashboardLocation">San Juánico, Comondú, BCS</p>
                         </div>
                         <div class="card-actions">
                             <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir</button>
                         </div>
                     </div>
 
-                    <div class="kpi-grid">
-                        <div class="kpi-card">
-                            <div class="kpi-label">Inversión Total</div>
-                            <div class="kpi-value">$1,850,000</div>
-                            <div class="kpi-description">MXN</div>
-                        </div>
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <div class="kpi-label">ROI Proyectado</div>
-                            <div class="kpi-value">42%</div>
-                            <div class="kpi-description">En 3 años</div>
-                        </div>
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <div class="kpi-label">Punto Equilibrio</div>
-                            <div class="kpi-value">14 meses</div>
-                            <div class="kpi-description">Desde apertura</div>
-                        </div>
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <div class="kpi-label">Apertura</div>
-                            <div class="kpi-value">Nov 2026</div>
-                            <div class="kpi-description">Proyectada</div>
-                        </div>
-                    </div>
+                    <div class="kpi-grid" id="dashboardKPIs"></div>
 
                     <h3 style="color: #0f3a7d; margin-top: 30px; margin-bottom: 15px; font-size: 20px;">Información General</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                        <div>
-                            <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Estructura Legal</p>
-                            <p style="color: #0f3a7d; font-weight: 600;">7 BREAKS S. de R.L. de C.V.</p>
-                        </div>
-                        <div>
-                            <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">RFC</p>
-                            <p style="color: #0f3a7d; font-weight: 600;">SBR260312PS0</p>
-                        </div>
-                        <div>
-                            <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Ubicación</p>
-                            <p style="color: #0f3a7d; font-weight: 600;">San Juánico, Comondú, BCS</p>
-                        </div>
-                        <div>
-                            <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Capital Propio</p>
-                            <p style="color: #0f3a7d; font-weight: 600;">55%</p>
-                        </div>
-                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;" id="dashboardInfo"></div>
+
+                    <h3 style="color: #0f3a7d; margin-top: 30px; margin-bottom: 15px; font-size: 20px;">Estructura de Financiamiento</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;" id="financingInfo"></div>
                 </div>
             </div>
         </div>
@@ -726,55 +1158,7 @@
                                     <th style="text-align: right;">% Total</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Adecuación Inmueble</strong></td>
-                                    <td>Remodelación, acabados</td>
-                                    <td class="amount">$680,000</td>
-                                    <td style="text-align: right;">36.8%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Equipo y Maquinaria</strong></td>
-                                    <td>Cocina, refrigeración</td>
-                                    <td class="amount">$520,000</td>
-                                    <td style="text-align: right;">28.1%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Mobiliario y Decoración</strong></td>
-                                    <td>Mesas, sillas, terraza</td>
-                                    <td class="amount">$280,000</td>
-                                    <td style="text-align: right;">15.1%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Inventario Inicial</strong></td>
-                                    <td>Stock de productos</td>
-                                    <td class="amount">$150,000</td>
-                                    <td style="text-align: right;">8.1%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Permisos y Licencias</strong></td>
-                                    <td>Trámites municipales</td>
-                                    <td class="amount">$85,000</td>
-                                    <td style="text-align: right;">4.6%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Marketing Inicial</strong></td>
-                                    <td>Branding, publicidad</td>
-                                    <td class="amount">$95,000</td>
-                                    <td style="text-align: right;">5.1%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Capital de Trabajo</strong></td>
-                                    <td>Gastos operativos</td>
-                                    <td class="amount">$60,000</td>
-                                    <td style="text-align: right;">3.2%</td>
-                                </tr>
-                                <tr style="background: #f8f9fb; font-weight: 600;">
-                                    <td colspan="2">TOTAL PRESUPUESTO</td>
-                                    <td class="amount">$1,850,000</td>
-                                    <td style="text-align: right;">100%</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="planTableBody"></tbody>
                         </table>
                     </div>
                 </div>
@@ -794,24 +1178,7 @@
                         </div>
                     </div>
 
-                    <div class="kpi-grid">
-                        <div class="kpi-card">
-                            <div class="kpi-label">Presupuesto Total</div>
-                            <div class="kpi-value" id="kpiTotal">$1.85M</div>
-                        </div>
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <div class="kpi-label">💰 Capturado</div>
-                            <div class="kpi-value" id="kpiCaptured">$0</div>
-                        </div>
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <div class="kpi-label">Falta Capturar</div>
-                            <div class="kpi-value" id="kpiRemaining">$1.85M</div>
-                        </div>
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <div class="kpi-label">% Progreso</div>
-                            <div class="kpi-value" id="kpiProgress">0%</div>
-                        </div>
-                    </div>
+                    <div class="kpi-grid" id="controlKPIs"></div>
 
                     <div style="background: #e8f5e9; border: 2px solid #4caf50; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
@@ -829,7 +1196,7 @@
                             </div>
                             <div>
                                 <p style="color: #2e7d32; font-size: 12px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px;">🎯 Apertura Proyectada</p>
-                                <p style="color: #1b5e20; font-weight: 700; font-size: 16px;">Noviembre 2026</p>
+                                <p style="color: #1b5e20; font-weight: 700; font-size: 16px;" id="openingDate">--</p>
                             </div>
                         </div>
                     </div>
@@ -855,9 +1222,7 @@
                                     <th style="text-align: right;">% Avance</th>
                                 </tr>
                             </thead>
-                            <tbody id="controlTable">
-                                <!-- Se llena dinámicamente -->
-                            </tbody>
+                            <tbody id="controlTable"></tbody>
                         </table>
                     </div>
 
@@ -879,63 +1244,139 @@
                     <div style="background: #d4edda; border: 2px solid #28a745; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
                         <p style="color: #155724; font-weight: 600; margin-bottom: 10px;">✅ Acceso Administrativo Activo</p>
                         <p style="color: #155724; font-size: 14px;">
-                            Puedes editar todos los montos capturados en la sección <strong>"Control de Inversiones"</strong> usando el botón <strong>"✏️ Editar Montos"</strong>. 
-                            Los cálculos se actualizarán automáticamente al guardar.
+                            Puedes editar TODOS los datos del proyecto. Los cambios se guardan automáticamente y se reflejan en todas las secciones.
                         </p>
                     </div>
 
                     <div style="display: grid; gap: 20px;">
-                        <div style="background: #f0f2f8; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">
-                            <h3 style="color: #0f3a7d; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                <span>📈</span> Resumen de Captura
-                            </h3>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Total Presupuestado</p>
-                                    <p style="color: #0f3a7d; font-weight: 600; font-size: 18px;" id="adminTotal">$1.85M</p>
-                                </div>
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Total Capturado</p>
-                                    <p style="color: #28a745; font-weight: 600; font-size: 18px;" id="adminCaptured">$0</p>
-                                </div>
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Falta Capturar</p>
-                                    <p style="color: #f5576c; font-weight: 600; font-size: 18px;" id="adminRemaining">$1.85M</p>
-                                </div>
-                                <div>
-                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">% Avance</p>
-                                    <p style="color: #4facfe; font-weight: 600; font-size: 18px;" id="adminProgress">0%</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="background: #f0f2f8; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">
-                            <h3 style="color: #0f3a7d; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                <span>📅</span> Fechas del Proyecto
-                            </h3>
-                            <p style="color: #1565c0; font-size: 13px; margin-bottom: 15px;">Configura la fecha de inicio del proyecto de inversión:</p>
+                        <!-- INFORMACIÓN GENERAL -->
+                        <div class="admin-section">
+                            <h3>🏢 Información General de la Empresa</h3>
                             <div class="edit-grid">
                                 <div class="edit-field">
-                                    <label>📍 Fecha de Inicio del Proyecto</label>
-                                    <input type="date" id="startDateInput" value="2026-05-31">
+                                    <label>Nombre Legal de la Empresa</label>
+                                    <input type="text" id="adminLegal" value="">
+                                </div>
+                                <div class="edit-field">
+                                    <label>RFC</label>
+                                    <input type="text" id="adminRFC" value="">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Ubicación / Municipio</label>
+                                    <input type="text" id="adminUbicacion" value="">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Marca Comercial / Nombre del Negocio</label>
+                                    <input type="text" id="adminBrandName" value="">
                                 </div>
                             </div>
-                            <button class="btn btn-primary" onclick="saveStartDate()" style="width: 100%;">💾 Guardar Fecha de Inicio</button>
+                            <button class="btn btn-save" onclick="saveCompanyInfo()" style="width: 100%;">💾 Guardar Información</button>
                         </div>
-                            <p style="color: #1565c0; font-size: 13px; margin-bottom: 15px;">Modifica los montos presupuestados para cada concepto:</p>
-                            <div class="edit-grid" id="budgetEditGrid"></div>
-                            <div style="display: flex; gap: 10px; margin-top: 15px;">
-                                <button class="btn btn-primary" onclick="saveBudgets()" style="flex: 1;">💾 Guardar Presupuestos</button>
-                                <button class="btn btn-secondary" onclick="resetBudgets()" style="flex: 1;">🔄 Restaurar Originales</button>
+
+                        <!-- INDICADORES FINANCIEROS -->
+                        <div class="admin-section">
+                            <h3>📈 Indicadores Financieros</h3>
+                            <div class="edit-grid">
+                                <div class="edit-field">
+                                    <label>ROI Proyectado (%)</label>
+                                    <input type="number" id="adminROI" value="42" step="0.1">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Punto de Equilibrio (meses)</label>
+                                    <input type="number" id="adminEquilibrio" value="14" step="0.1">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Mes de Apertura (ej: Noviembre)</label>
+                                    <input type="text" id="adminMonthOpening" value="Noviembre">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Año de Apertura</label>
+                                    <input type="number" id="adminYearOpening" value="2026">
+                                </div>
+                            </div>
+                            <button class="btn btn-save" onclick="saveFinancialIndicators()" style="width: 100%;">💾 Guardar Indicadores</button>
+                        </div>
+
+                        <!-- FECHAS -->
+                        <div class="admin-section">
+                            <h3>📅 Fechas del Proyecto</h3>
+                            <div class="edit-grid">
+                                <div class="edit-field">
+                                    <label>Fecha de Inicio</label>
+                                    <input type="date" id="startDateInput" value="">
+                                </div>
+                            </div>
+                            <button class="btn btn-save" onclick="saveStartDate()" style="width: 100%;">💾 Guardar Fecha</button>
+                        </div>
+
+                        <!-- ESTRUCTURA DE FINANCIAMIENTO -->
+                        <div class="admin-section">
+                            <h3>💰 Estructura de Financiamiento</h3>
+                            <p style="color: #1565c0; font-size: 12px; margin-bottom: 15px;">Los porcentajes deben sumar 100%</p>
+                            <div class="edit-grid">
+                                <div class="edit-field">
+                                    <label>Capital Propio / Dueños (%)</label>
+                                    <input type="number" id="adminOwnCapital" value="55" step="0.1" min="0" max="100">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Crédito Bancario (%)</label>
+                                    <input type="number" id="adminBankCredit" value="35" step="0.1" min="0" max="100">
+                                </div>
+                                <div class="edit-field">
+                                    <label>Crédito de Proveedores (%)</label>
+                                    <input type="number" id="adminSupplierCredit" value="10" step="0.1" min="0" max="100">
+                                </div>
+                            </div>
+                            <div id="financingWarning" style="color: #d32f2f; font-weight: 600; margin-bottom: 10px; display: none;">
+                                ⚠️ Los porcentajes deben sumar 100%
+                            </div>
+                            <button class="btn btn-save" onclick="saveFinancingStructure()" style="width: 100%;">💾 Guardar Estructura</button>
+                        </div>
+
+                        <!-- CONCEPTOS DE INVERSIÓN -->
+                        <div class="admin-section">
+                            <h3>💼 Conceptos de Inversión</h3>
+                            <p style="color: #1565c0; font-size: 12px; margin-bottom: 15px;">Edita los nombres, descripciones y presupuestos:</p>
+                            <div id="budgetEditGrid" style="display: grid; gap: 15px; margin-bottom: 20px;"></div>
+                            <button class="btn btn-save" onclick="saveBudgets()" style="width: 100%; margin-bottom: 10px;">💾 Guardar Conceptos</button>
+                            <button class="btn btn-secondary" onclick="resetBudgets()" style="width: 100%;">🔄 Restaurar Originales</button>
+                        </div>
+
+                        <!-- INGRESO DE MONTOS CAPTURADOS -->
+                        <div class="admin-section">
+                            <h3>💵 Captura de Gastos Realizados</h3>
+                            <p style="color: #1565c0; font-size: 12px; margin-bottom: 15px;">Ingresa los montos gastados en cada concepto:</p>
+                            <div class="edit-grid" id="captureEditGrid"></div>
+                            <button class="btn btn-save" onclick="saveCapturedAmounts()" style="width: 100%;">💾 Guardar Montos</button>
+                        </div>
+
+                        <!-- HERRAMIENTAS -->
+                        <div class="admin-section">
+                            <h3>🔧 Herramientas y Exportación</h3>
+                            <div style="display: grid; gap: 10px;">
+                                <button class="btn btn-primary" onclick="exportAllData()" style="width: 100%;">📥 Exportar Base de Datos Completa (JSON)</button>
+                                <button class="btn btn-secondary" onclick="exportControl()" style="width: 100%;">📊 Exportar Control a CSV</button>
+                                <button class="btn btn-delete" onclick="resetAllData()" style="width: 100%;">🔄 Reiniciar Todos los Datos</button>
                             </div>
                         </div>
 
-                        <div style="background: #f0f2f8; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">
-                            <h3 style="color: #0f3a7d; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                <span>🔧</span> Herramientas
-                            </h3>
-                            <button class="btn btn-primary" onclick="goToControl()" style="width: 100%; margin-bottom: 10px;">📊 Ir a Control de Inversiones</button>
-                            <button class="btn btn-secondary" onclick="exportAllData()" style="width: 100%;">📥 Exportar Base de Datos Completa</button>
+                        <!-- INFORMACIÓN DEL SISTEMA -->
+                        <div class="admin-section">
+                            <h3>ℹ️ Información del Sistema</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                                <div>
+                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Total Conceptos</p>
+                                    <p style="color: #0f3a7d; font-weight: 600; font-size: 16px;" id="systemConcepts">7</p>
+                                </div>
+                                <div>
+                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Última Actualización</p>
+                                    <p style="color: #0f3a7d; font-weight: 600; font-size: 13px;" id="systemLastUpdate">--</p>
+                                </div>
+                                <div>
+                                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Estado</p>
+                                    <p style="color: #0f3a7d; font-weight: 600;">✅ Activo</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -950,24 +1391,66 @@
     <script>
         // ========== CONFIGURACIÓN ==========
         let currentRole = 'admin';
-        let projectStartDate = new Date('2026-05-31'); // Fecha por defecto (hoy)
+        let projectStartDate = new Date('2026-05-31');
         
+        // CONTRASEÑAS (ocultas, no visibles en la pantalla)
         const PASSWORDS = {
             admin: 'admin123',
             user: 'user123'
         };
 
-        const BUDGET_ITEMS = [
-            { id: 1, name: 'Adecuación Inmueble', budget: 680000 },
-            { id: 2, name: 'Equipo y Maquinaria', budget: 520000 },
-            { id: 3, name: 'Mobiliario y Decoración', budget: 280000 },
-            { id: 4, name: 'Inventario Inicial', budget: 150000 },
-            { id: 5, name: 'Permisos y Licencias', budget: 85000 },
-            { id: 6, name: 'Marketing Inicial', budget: 95000 },
-            { id: 7, name: 'Capital de Trabajo', budget: 60000 }
-        ];
+        let projectData = {
+            company: {
+                legal: '7 BREAKS S. de R.L. de C.V.',
+                rfc: 'SBR260312PS0',
+                ubicacion: 'San Juánico, Comondú, BCS',
+                brandName: 'Café Olas'
+            },
+            indicators: {
+                roi: 42,
+                equilibrio: 14,
+                monthOpening: 'Noviembre',
+                yearOpening: 2026
+            },
+            financing: {
+                ownCapital: 55,
+                bankCredit: 35,
+                supplierCredit: 10
+            },
+            budgets: [
+                { id: 1, name: 'Adecuación Inmueble', description: 'Remodelación, acabados', budget: 680000 },
+                { id: 2, name: 'Equipo y Maquinaria', description: 'Cocina, refrigeración', budget: 520000 },
+                { id: 3, name: 'Mobiliario y Decoración', description: 'Mesas, sillas, terraza', budget: 280000 },
+                { id: 4, name: 'Inventario Inicial', description: 'Stock de productos', budget: 150000 },
+                { id: 5, name: 'Permisos y Licencias', description: 'Trámites municipales', budget: 85000 },
+                { id: 6, name: 'Marketing Inicial', description: 'Branding, publicidad', budget: 95000 },
+                { id: 7, name: 'Capital de Trabajo', description: 'Gastos operativos', budget: 60000 }
+            ],
+            captured: {}
+        };
 
-        let captured = {};
+        // ========== FUNCIONES DE FORMATO ==========
+        function formatMXN(number) {
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(number);
+        }
+
+        function formatDateMX(date) {
+            return new Intl.DateTimeFormat('es-MX', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            }).format(date);
+        }
+
+        function calculateDaysBetween(date1, date2) {
+            const timeDifference = Math.abs(date2 - date1);
+            return Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+        }
 
         // ========== LOGIN ==========
         function setRole(role) {
@@ -977,10 +1460,8 @@
             
             if (role === 'admin') {
                 document.getElementById('roleAdminBtn').classList.add('selected');
-                document.getElementById('roleInfo').innerHTML = '<strong>👨‍💼 Modo Administrador:</strong> Acceso completo a edición de datos y panel administrativo.';
             } else {
                 document.getElementById('roleUserBtn').classList.add('selected');
-                document.getElementById('roleInfo').innerHTML = '<strong>👤 Modo Usuario:</strong> Puedes ver y descargar información. No puedes editar.';
             }
         }
 
@@ -994,23 +1475,14 @@
                 document.getElementById('appPage').classList.add('active');
                 setupApp();
             } else {
-                errorDiv.textContent = '❌ Contraseña incorrecta. Intenta de nuevo.';
+                errorDiv.textContent = '❌ Contraseña incorrecta.';
                 document.getElementById('password').value = '';
             }
         }
 
         // ========== INICIALIZAR APP ==========
         function setupApp() {
-            loadBudgets();
-            loadData();
-            loadDates();
-            
-            // Actualizar campo de fecha en Admin
-            const dateInput = document.getElementById('startDateInput');
-            if (dateInput) {
-                dateInput.valueAsDate = projectStartDate;
-            }
-            
+            loadAllData();
             document.getElementById('userRoleDisplay').textContent = currentRole === 'admin' ? '👨‍💼 Administrador' : '👤 Usuario';
             
             if (currentRole === 'admin') {
@@ -1026,80 +1498,152 @@
         }
 
         // ========== ALMACENAMIENTO ==========
-        function loadData() {
-            const stored = localStorage.getItem('cafeOlasCaptures');
+        function loadAllData() {
+            const stored = localStorage.getItem('cafeOlasData');
             if (stored) {
-                captured = JSON.parse(stored);
+                projectData = JSON.parse(stored);
             } else {
-                BUDGET_ITEMS.forEach(item => {
-                    captured[item.id] = 0;
+                projectData.captured = {};
+                projectData.budgets.forEach(item => {
+                    projectData.captured[item.id] = 0;
                 });
                 saveData();
+            }
+
+            const storedDate = localStorage.getItem('cafeOlasStartDate');
+            if (storedDate) {
+                projectStartDate = new Date(storedDate);
             }
         }
 
         function saveData() {
-            localStorage.setItem('cafeOlasCaptures', JSON.stringify(captured));
+            localStorage.setItem('cafeOlasData', JSON.stringify(projectData));
             const now = new Date().toLocaleString('es-MX');
-            document.getElementById('lastUpdate').textContent = now;
+            const lastUpdate = document.getElementById('lastUpdate');
+            if (lastUpdate) lastUpdate.textContent = now;
+            const systemLastUpdate = document.getElementById('systemLastUpdate');
+            if (systemLastUpdate) systemLastUpdate.textContent = now;
         }
 
-        // ========== FORMATO DE NÚMEROS MEXICANO ==========
-        function formatMXN(number) {
-            return new Intl.NumberFormat('es-MX', {
-                style: 'currency',
-                currency: 'MXN',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(number);
+        // ========== ACTUALIZAR PANTALLAS ==========
+        function updateAllDisplays() {
+            updateDashboard();
+            updatePlanTable();
+            updateControlTable();
+            updateKPIs();
+            updateDatesDisplay();
+            if (currentRole === 'admin') {
+                renderAdminPanel();
+            }
         }
 
-        function formatNumber(number) {
-            return new Intl.NumberFormat('es-MX').format(number);
+        // ========== DASHBOARD ==========
+        function updateDashboard() {
+            let html = `
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Estructura Legal</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.legal}</p>
+                </div>
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">RFC</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.rfc}</p>
+                </div>
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Ubicación</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.ubicacion}</p>
+                </div>
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Marca Comercial</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.company.brandName}</p>
+                </div>
+            `;
+            document.getElementById('dashboardInfo').innerHTML = html;
+
+            const totalBudget = projectData.budgets.reduce((sum, item) => sum + item.budget, 0);
+            let financingHtml = `
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Capital Propio / Dueños</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.financing.ownCapital}% = ${formatMXN((totalBudget * projectData.financing.ownCapital) / 100)}</p>
+                </div>
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Crédito Bancario</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.financing.bankCredit}% = ${formatMXN((totalBudget * projectData.financing.bankCredit) / 100)}</p>
+                </div>
+                <div>
+                    <p style="color: #7f8fa3; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Crédito de Proveedores</p>
+                    <p style="color: #0f3a7d; font-weight: 600;">${projectData.financing.supplierCredit}% = ${formatMXN((totalBudget * projectData.financing.supplierCredit) / 100)}</p>
+                </div>
+            `;
+            document.getElementById('financingInfo').innerHTML = financingHtml;
+
+            let kpisHtml = `
+                <div class="kpi-card">
+                    <div class="kpi-label">Inversión Total</div>
+                    <div class="kpi-value">${formatMXN(totalBudget)}</div>
+                    <div class="kpi-description">MXN</div>
+                </div>
+                <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="kpi-label">ROI Proyectado</div>
+                    <div class="kpi-value">${projectData.indicators.roi}%</div>
+                    <div class="kpi-description">En 3 años</div>
+                </div>
+                <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="kpi-label">Punto Equilibrio</div>
+                    <div class="kpi-value">${projectData.indicators.equilibrio} meses</div>
+                    <div class="kpi-description">Desde apertura</div>
+                </div>
+                <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="kpi-label">Apertura</div>
+                    <div class="kpi-value">${projectData.indicators.monthOpening} ${projectData.indicators.yearOpening}</div>
+                    <div class="kpi-description">Proyectada</div>
+                </div>
+            `;
+            document.getElementById('dashboardKPIs').innerHTML = kpisHtml;
+            document.getElementById('dashboardLocation').textContent = projectData.company.ubicacion;
         }
 
-        // ========== FORMATO DE FECHAS MEXICANO ==========
-        function formatDateMX(date) {
-            return new Intl.DateTimeFormat('es-MX', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            }).format(date);
+        // ========== PLAN DE INVERSIONES ==========
+        function updatePlanTable() {
+            const tbody = document.getElementById('planTableBody');
+            tbody.innerHTML = '';
+            let totalBudget = 0;
+
+            projectData.budgets.forEach(item => {
+                totalBudget += item.budget;
+            });
+
+            projectData.budgets.forEach(item => {
+                const percent = ((item.budget / totalBudget) * 100).toFixed(1);
+                const row = `<tr>
+                    <td data-label="Concepto"><strong>${item.name}</strong></td>
+                    <td data-label="Descripción">${item.description}</td>
+                    <td data-label="Monto" class="amount">${formatMXN(item.budget)}</td>
+                    <td data-label="% Total" style="text-align: right;">${percent}%</td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+
+            const totalsRow = `<tr style="background: #f8f9fb; font-weight: 600;">
+                <td data-label="Concepto" colspan="2">TOTAL</td>
+                <td data-label="Monto" class="amount">${formatMXN(totalBudget)}</td>
+                <td data-label="% Total" style="text-align: right;">100%</td>
+            </tr>`;
+            tbody.innerHTML += totalsRow;
         }
 
-        function calculateDaysBetween(date1, date2) {
-            const timeDifference = Math.abs(date2 - date1);
-            return Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-        }
-
-        function updateDatesDisplay() {
-            const today = new Date();
-            const daysElapsed = calculateDaysBetween(projectStartDate, today);
-            
-            document.getElementById('startDate').textContent = formatDateMX(projectStartDate);
-            document.getElementById('currentDate').textContent = formatDateMX(today);
-            document.getElementById('daysElapsed').textContent = `${daysElapsed} ${daysElapsed === 1 ? 'día' : 'días'}`;
-        }
+        // ========== CONTROL DE INVERSIONES ==========
         function getCalculations() {
             let totalBudget = 0, totalCaptured = 0;
             
-            BUDGET_ITEMS.forEach(item => {
+            projectData.budgets.forEach(item => {
                 totalBudget += item.budget;
-                totalCaptured += (captured[item.id] || 0);
+                totalCaptured += (projectData.captured[item.id] || 0);
             });
 
             const remaining = totalBudget - totalCaptured;
             const percent = totalBudget > 0 ? ((totalCaptured / totalBudget) * 100).toFixed(1) : 0;
 
             return { totalBudget, totalCaptured, remaining, percent };
-        }
-
-        // ========== ACTUALIZAR PANTALLAS ==========
-        function updateAllDisplays() {
-            updateControlTable();
-            updateKPIs();
-            updateAdminPanel();
-            updateDatesDisplay();
         }
 
         function updateControlTable() {
@@ -1109,26 +1653,26 @@
             const calcs = getCalculations();
             let rows = '';
 
-            BUDGET_ITEMS.forEach(item => {
-                const cap = captured[item.id] || 0;
+            projectData.budgets.forEach(item => {
+                const cap = projectData.captured[item.id] || 0;
                 const diff = item.budget - cap;
                 const pct = item.budget > 0 ? ((cap / item.budget) * 100).toFixed(1) : 0;
                 
                 rows += `<tr>
-                    <td><strong>${item.name}</strong></td>
-                    <td style="text-align: right;" class="amount">${formatMXN(item.budget)}</td>
-                    <td style="text-align: right;" class="amount">${formatMXN(cap)}</td>
-                    <td style="text-align: right;" class="amount">${formatMXN(diff)}</td>
-                    <td style="text-align: right; font-weight: 600;">${pct}%</td>
+                    <td data-label="Concepto"><strong>${item.name}</strong></td>
+                    <td data-label="Presupuesto" style="text-align: right;" class="amount">${formatMXN(item.budget)}</td>
+                    <td data-label="Capturado" style="text-align: right;" class="amount">${formatMXN(cap)}</td>
+                    <td data-label="Falta" style="text-align: right;" class="amount">${formatMXN(diff)}</td>
+                    <td data-label="% Avance" style="text-align: right; font-weight: 600;">${pct}%</td>
                 </tr>`;
             });
 
             rows += `<tr style="background: #f8f9fb; font-weight: 600; border-top: 2px solid #0f3a7d;">
-                <td>TOTAL</td>
-                <td style="text-align: right;" class="amount">${formatMXN(calcs.totalBudget)}</td>
-                <td style="text-align: right;" class="amount" style="color: #28a745;">${formatMXN(calcs.totalCaptured)}</td>
-                <td style="text-align: right;" class="amount" style="color: #f5576c;">${formatMXN(calcs.remaining)}</td>
-                <td style="text-align: right;" class="amount">${calcs.percent}%</td>
+                <td data-label="Concepto">TOTAL</td>
+                <td data-label="Presupuesto" style="text-align: right;" class="amount">${formatMXN(calcs.totalBudget)}</td>
+                <td data-label="Capturado" style="text-align: right;" class="amount">${formatMXN(calcs.totalCaptured)}</td>
+                <td data-label="Falta" style="text-align: right;" class="amount">${formatMXN(calcs.remaining)}</td>
+                <td data-label="% Avance" style="text-align: right;" class="amount">${calcs.percent}%</td>
             </tr>`;
 
             tbody.innerHTML = rows;
@@ -1137,160 +1681,121 @@
         function updateKPIs() {
             const calcs = getCalculations();
             
-            document.getElementById('kpiTotal').textContent = formatMXN(calcs.totalBudget);
-            document.getElementById('kpiCaptured').textContent = formatMXN(calcs.totalCaptured);
-            document.getElementById('kpiRemaining').textContent = formatMXN(calcs.remaining);
-            document.getElementById('kpiProgress').textContent = `${calcs.percent}%`;
+            let kpisHtml = `
+                <div class="kpi-card">
+                    <div class="kpi-label">Presupuesto Total</div>
+                    <div class="kpi-value">${formatMXN(calcs.totalBudget)}</div>
+                </div>
+                <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <div class="kpi-label">💰 Capturado</div>
+                    <div class="kpi-value">${formatMXN(calcs.totalCaptured)}</div>
+                </div>
+                <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="kpi-label">Falta Capturar</div>
+                    <div class="kpi-value">${formatMXN(calcs.remaining)}</div>
+                </div>
+                <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="kpi-label">% Progreso</div>
+                    <div class="kpi-value">${calcs.percent}%</div>
+                </div>
+            `;
+            document.getElementById('controlKPIs').innerHTML = kpisHtml;
         }
 
-        function updateAdminPanel() {
-            const calcs = getCalculations();
+        function updateDatesDisplay() {
+            const today = new Date();
+            const daysElapsed = calculateDaysBetween(projectStartDate, today);
             
-            document.getElementById('adminTotal').textContent = formatMXN(calcs.totalBudget);
-            document.getElementById('adminCaptured').textContent = formatMXN(calcs.totalCaptured);
-            document.getElementById('adminRemaining').textContent = formatMXN(calcs.remaining);
-            document.getElementById('adminProgress').textContent = `${calcs.percent}%`;
-            
-            renderBudgetEditGrid();
+            document.getElementById('startDate').textContent = formatDateMX(projectStartDate);
+            document.getElementById('currentDate').textContent = formatDateMX(today);
+            document.getElementById('daysElapsed').textContent = `${daysElapsed} ${daysElapsed === 1 ? 'día' : 'días'}`;
+            document.getElementById('openingDate').textContent = `${projectData.indicators.monthOpening} ${projectData.indicators.yearOpening}`;
         }
 
-        function renderBudgetEditGrid() {
-            const container = document.getElementById('budgetEditGrid');
-            container.innerHTML = '';
+        // ========== PANEL ADMINISTRATIVO ==========
+        function renderAdminPanel() {
+            document.getElementById('adminLegal').value = projectData.company.legal;
+            document.getElementById('adminRFC').value = projectData.company.rfc;
+            document.getElementById('adminUbicacion').value = projectData.company.ubicacion;
+            document.getElementById('adminBrandName').value = projectData.company.brandName;
 
-            BUDGET_ITEMS.forEach(item => {
-                const field = `<div class="edit-field">
-                    <label>${item.name}</label>
-                    <input type="number" class="budget-input" data-id="${item.id}" value="${item.budget}">
-                </div>`;
-                container.innerHTML += field;
+            document.getElementById('adminROI').value = projectData.indicators.roi;
+            document.getElementById('adminEquilibrio').value = projectData.indicators.equilibrio;
+            document.getElementById('adminMonthOpening').value = projectData.indicators.monthOpening;
+            document.getElementById('adminYearOpening').value = projectData.indicators.yearOpening;
+
+            document.getElementById('adminOwnCapital').value = projectData.financing.ownCapital;
+            document.getElementById('adminBankCredit').value = projectData.financing.bankCredit;
+            document.getElementById('adminSupplierCredit').value = projectData.financing.supplierCredit;
+
+            document.getElementById('startDateInput').valueAsDate = projectStartDate;
+
+            const budgetGrid = document.getElementById('budgetEditGrid');
+            budgetGrid.innerHTML = '';
+            projectData.budgets.forEach(item => {
+                budgetGrid.innerHTML += `
+                    <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e8ecf0;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                            <input type="text" class="budget-name" data-id="${item.id}" value="${item.name}" placeholder="Nombre" style="padding: 8px; border: 1px solid #e8ecf0; border-radius: 4px;">
+                            <input type="text" class="budget-desc" data-id="${item.id}" value="${item.description}" placeholder="Descripción" style="padding: 8px; border: 1px solid #e8ecf0; border-radius: 4px;">
+                            <input type="number" class="budget-amount" data-id="${item.id}" value="${item.budget}" placeholder="Presupuesto" style="padding: 8px; border: 1px solid #e8ecf0; border-radius: 4px;">
+                        </div>
+                    </div>
+                `;
+            });
+
+            const captureGrid = document.getElementById('captureEditGrid');
+            captureGrid.innerHTML = '';
+            projectData.budgets.forEach(item => {
+                captureGrid.innerHTML += `
+                    <div class="edit-field">
+                        <label>${item.name}</label>
+                        <input type="number" class="capture-input" data-id="${item.id}" value="${projectData.captured[item.id] || 0}">
+                    </div>
+                `;
             });
         }
 
-        // ========== EDICIÓN ==========
-        function enableEditControl() {
-            const container = document.getElementById('editInputs');
-            container.innerHTML = '';
-
-            BUDGET_ITEMS.forEach(item => {
-                const field = `<div class="edit-field">
-                    <label>${item.name}</label>
-                    <input type="number" class="capture-input" data-id="${item.id}" value="${captured[item.id] || 0}">
-                </div>`;
-                container.innerHTML += field;
-            });
-
-            document.getElementById('editPanel').style.display = 'block';
-        }
-
-        function saveCaptures() {
-            document.querySelectorAll('.capture-input').forEach(input => {
-                const id = parseInt(input.dataset.id);
-                captured[id] = parseFloat(input.value) || 0;
-            });
-
+        // ========== FUNCIONES DE GUARDADO ==========
+        function saveCompanyInfo() {
+            projectData.company.legal = document.getElementById('adminLegal').value;
+            projectData.company.rfc = document.getElementById('adminRFC').value;
+            projectData.company.ubicacion = document.getElementById('adminUbicacion').value;
+            projectData.company.brandName = document.getElementById('adminBrandName').value;
             saveData();
             updateAllDisplays();
-            document.getElementById('editPanel').style.display = 'none';
-            showAlert('success', '✅ Montos guardados correctamente. Cálculos actualizados.');
+            showAlert('success', '✅ Información general guardada');
         }
 
-        function cancelEdit() {
-            document.getElementById('editPanel').style.display = 'none';
-        }
-
-        // ========== EXPORT ==========
-        function exportControl() {
-            const calcs = getCalculations();
-            let csv = 'Café Olas - Control de Inversiones\nSan Juánico, Comondú, BCS\n\n';
-            csv += 'Concepto,Presupuesto,Capturado,Falta,% Avance\n';
-
-            BUDGET_ITEMS.forEach(item => {
-                const cap = captured[item.id] || 0;
-                const pct = item.budget > 0 ? ((cap / item.budget) * 100).toFixed(1) : 0;
-                csv += `"${item.name}","${formatMXN(item.budget)}","${formatMXN(cap)}","${formatMXN(item.budget - cap)}","${pct}%"\n`;
-            });
-
-            csv += `"TOTAL","${formatMXN(calcs.totalBudget)}","${formatMXN(calcs.totalCaptured)}","${formatMXN(calcs.remaining)}","${calcs.percent}%"\n`;
-
-            const link = document.createElement('a');
-            link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-            link.download = `Cafe_Olas_${new Date().toISOString().split('T')[0]}.csv`;
-            link.click();
-            showAlert('success', '✅ CSV descargado correctamente');
-        }
-
-        function exportAllData() {
-            const data = { 
-                budgetItems: BUDGET_ITEMS,
-                captured, 
-                calculations: getCalculations(),
-                timestamp: new Date().toLocaleString('es-MX')
-            };
-            const link = document.createElement('a');
-            link.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2));
-            link.download = `Cafe_Olas_BD_${new Date().toISOString().split('T')[0]}.json`;
-            link.click();
-            showAlert('success', '✅ Base de datos exportada correctamente');
-        }
-
-        // ========== EDITAR PRESUPUESTOS ==========
-        const ORIGINAL_BUDGETS = [
-            { id: 1, name: 'Adecuación Inmueble', budget: 680000 },
-            { id: 2, name: 'Equipo y Maquinaria', budget: 520000 },
-            { id: 3, name: 'Mobiliario y Decoración', budget: 280000 },
-            { id: 4, name: 'Inventario Inicial', budget: 150000 },
-            { id: 5, name: 'Permisos y Licencias', budget: 85000 },
-            { id: 6, name: 'Marketing Inicial', budget: 95000 },
-            { id: 7, name: 'Capital de Trabajo', budget: 60000 }
-        ];
-
-        function saveBudgets() {
-            document.querySelectorAll('.budget-input').forEach(input => {
-                const id = parseInt(input.dataset.id);
-                const item = BUDGET_ITEMS.find(i => i.id === id);
-                if (item) {
-                    item.budget = parseFloat(input.value) || 0;
-                }
-            });
-
-            localStorage.setItem('cafeOlasBudgets', JSON.stringify(BUDGET_ITEMS));
+        function saveFinancialIndicators() {
+            projectData.indicators.roi = parseFloat(document.getElementById('adminROI').value);
+            projectData.indicators.equilibrio = parseFloat(document.getElementById('adminEquilibrio').value);
+            projectData.indicators.monthOpening = document.getElementById('adminMonthOpening').value;
+            projectData.indicators.yearOpening = parseInt(document.getElementById('adminYearOpening').value);
+            saveData();
             updateAllDisplays();
-            showAlert('success', '✅ Presupuestos actualizados correctamente. La tabla se ha recalculado.');
+            showAlert('success', '✅ Indicadores financieros guardados');
         }
 
-        function resetBudgets() {
-            if (confirm('⚠️ ¿Restaurar presupuestos originales? Se perderán los cambios.')) {
-                BUDGET_ITEMS.forEach(item => {
-                    const original = ORIGINAL_BUDGETS.find(i => i.id === item.id);
-                    if (original) item.budget = original.budget;
-                });
-                localStorage.setItem('cafeOlasBudgets', JSON.stringify(BUDGET_ITEMS));
-                updateAllDisplays();
-                showAlert('success', '✅ Presupuestos restaurados a valores originales');
-            }
-        }
+        function saveFinancingStructure() {
+            const own = parseFloat(document.getElementById('adminOwnCapital').value);
+            const bank = parseFloat(document.getElementById('adminBankCredit').value);
+            const supplier = parseFloat(document.getElementById('adminSupplierCredit').value);
+            const total = own + bank + supplier;
 
-        // ========== CARGAR PRESUPUESTOS GUARDADOS ==========
-        function loadBudgets() {
-            const stored = localStorage.getItem('cafeOlasBudgets');
-            if (stored) {
-                const loaded = JSON.parse(stored);
-                BUDGET_ITEMS.forEach((item, idx) => {
-                    if (loaded[idx]) {
-                        item.budget = loaded[idx].budget;
-                    }
-                });
+            if (Math.abs(total - 100) > 0.1) {
+                document.getElementById('financingWarning').style.display = 'block';
+                showAlert('error', '⚠️ Los porcentajes deben sumar 100%');
+                return;
             }
-        }
 
-        // ========== CARGAR FECHAS GUARDADAS ==========
-        function loadDates() {
-            const storedDate = localStorage.getItem('cafeOlasStartDate');
-            if (storedDate) {
-                projectStartDate = new Date(storedDate);
-            }
-            updateDatesDisplay();
+            document.getElementById('financingWarning').style.display = 'none';
+            projectData.financing.ownCapital = own;
+            projectData.financing.bankCredit = bank;
+            projectData.financing.supplierCredit = supplier;
+            saveData();
+            updateAllDisplays();
+            showAlert('success', '✅ Estructura de financiamiento guardada');
         }
 
         function saveStartDate() {
@@ -1299,7 +1804,122 @@
                 projectStartDate = new Date(inputDate);
                 localStorage.setItem('cafeOlasStartDate', inputDate);
                 updateDatesDisplay();
-                showAlert('success', '✅ Fecha de inicio guardada correctamente');
+                showAlert('success', '✅ Fecha de inicio guardada');
+            }
+        }
+
+        function saveBudgets() {
+            document.querySelectorAll('.budget-name').forEach(input => {
+                const id = parseInt(input.dataset.id);
+                const item = projectData.budgets.find(i => i.id === id);
+                if (item) {
+                    item.name = input.value;
+                    item.description = document.querySelector(`.budget-desc[data-id="${id}"]`).value;
+                    item.budget = parseFloat(document.querySelector(`.budget-amount[data-id="${id}"]`).value) || 0;
+                }
+            });
+            saveData();
+            updateAllDisplays();
+            showAlert('success', '✅ Conceptos de inversión guardados');
+        }
+
+        function resetBudgets() {
+            if (confirm('⚠️ ¿Restaurar valores originales?')) {
+                projectData.budgets = [
+                    { id: 1, name: 'Adecuación Inmueble', description: 'Remodelación, acabados', budget: 680000 },
+                    { id: 2, name: 'Equipo y Maquinaria', description: 'Cocina, refrigeración', budget: 520000 },
+                    { id: 3, name: 'Mobiliario y Decoración', description: 'Mesas, sillas, terraza', budget: 280000 },
+                    { id: 4, name: 'Inventario Inicial', description: 'Stock de productos', budget: 150000 },
+                    { id: 5, name: 'Permisos y Licencias', description: 'Trámites municipales', budget: 85000 },
+                    { id: 6, name: 'Marketing Inicial', description: 'Branding, publicidad', budget: 95000 },
+                    { id: 7, name: 'Capital de Trabajo', description: 'Gastos operativos', budget: 60000 }
+                ];
+                saveData();
+                updateAllDisplays();
+                showAlert('success', '✅ Conceptos restaurados');
+            }
+        }
+
+        function saveCapturedAmounts() {
+            document.querySelectorAll('.capture-input').forEach(input => {
+                const id = parseInt(input.dataset.id);
+                projectData.captured[id] = parseFloat(input.value) || 0;
+            });
+            saveData();
+            updateAllDisplays();
+            showAlert('success', '✅ Montos capturados guardados');
+        }
+
+        function enableEditControl() {
+            const container = document.getElementById('editInputs');
+            container.innerHTML = '';
+
+            projectData.budgets.forEach(item => {
+                const field = `<div class="edit-field">
+                    <label>${item.name}</label>
+                    <input type="number" class="edit-capture-input" data-id="${item.id}" value="${projectData.captured[item.id] || 0}">
+                </div>`;
+                container.innerHTML += field;
+            });
+
+            document.getElementById('editPanel').style.display = 'block';
+        }
+
+        function saveCaptures() {
+            document.querySelectorAll('.edit-capture-input').forEach(input => {
+                const id = parseInt(input.dataset.id);
+                projectData.captured[id] = parseFloat(input.value) || 0;
+            });
+            saveData();
+            updateAllDisplays();
+            document.getElementById('editPanel').style.display = 'none';
+            showAlert('success', '✅ Montos capturados actualizados');
+        }
+
+        function cancelEdit() {
+            document.getElementById('editPanel').style.display = 'none';
+        }
+
+        function exportControl() {
+            const calcs = getCalculations();
+            let csv = 'Café Olas - Control de Inversiones\n';
+            csv += `${projectData.company.ubicacion}\n\n`;
+            csv += 'Concepto,Presupuesto,Capturado,Falta,% Avance\n';
+
+            projectData.budgets.forEach(item => {
+                const cap = projectData.captured[item.id] || 0;
+                const pct = item.budget > 0 ? ((cap / item.budget) * 100).toFixed(1) : 0;
+                csv += `"${item.name}","${formatMXN(item.budget)}","${formatMXN(cap)}","${formatMXN(item.budget - cap)}","${pct}%"\n`;
+            });
+
+            csv += `"TOTAL","${formatMXN(calcs.totalBudget)}","${formatMXN(calcs.totalCaptured)}","${formatMXN(calcs.remaining)}","${calcs.percent}%"\n`;
+
+            const link = document.createElement('a');
+            link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+            link.download = `Cafe_Olas_Control_${new Date().toISOString().split('T')[0]}.csv`;
+            link.click();
+            showAlert('success', '✅ CSV descargado');
+        }
+
+        function exportAllData() {
+            const data = { 
+                projectData,
+                projectStartDate: projectStartDate.toISOString().split('T')[0],
+                calculations: getCalculations(),
+                timestamp: new Date().toLocaleString('es-MX')
+            };
+            const link = document.createElement('a');
+            link.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2));
+            link.download = `Cafe_Olas_BD_${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            showAlert('success', '✅ Base de datos exportada');
+        }
+
+        function resetAllData() {
+            if (confirm('⚠️ ¿Reiniciar TODOS los datos? Esta acción no se puede deshacer.')) {
+                localStorage.removeItem('cafeOlasData');
+                localStorage.removeItem('cafeOlasStartDate');
+                location.reload();
             }
         }
 
@@ -1315,10 +1935,6 @@
             showPage('dashboard');
         }
 
-        function goToControl() {
-            showPage('control');
-        }
-
         function logout() {
             document.getElementById('appPage').classList.remove('active');
             document.getElementById('loginPage').style.display = 'flex';
@@ -1326,7 +1942,6 @@
             document.getElementById('loginError').textContent = '';
         }
 
-        // ========== ALERTAS ==========
         function showAlert(type, message) {
             const alertDiv = type === 'success' ? document.getElementById('successAlert') : document.getElementById('errorAlert');
             alertDiv.textContent = message;
